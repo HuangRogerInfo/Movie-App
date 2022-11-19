@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { CollectionComponent } from './collection/collection.component';
 import { DetailMovieComponent } from './detail-movie/detail-movie.component';
 import { FilmService } from './film.service';
 import { ListMovieComponent } from './list-movie/list-movie.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
   { path: '', component: ListMovieComponent },
+  { path: 'collection', component: ProfileComponent },
+  { path: 'profile', component: CollectionComponent },
   { path: 'films/:id', component: DetailMovieComponent }
 ];
 

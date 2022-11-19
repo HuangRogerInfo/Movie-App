@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { ListMovieComponent } from './list-movie/list-movie.component';
 import { DetailMovieComponent } from './detail-movie/detail-movie.component';
 import { MovieGenreColorPipe } from './movie-genre-color.pipe';
+import { CollectionComponent } from './collection/collection.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { MovieGenreColorPipe } from './movie-genre-color.pipe';
     HeaderComponent,
     ListMovieComponent,
     DetailMovieComponent,
-    MovieGenreColorPipe
+    MovieGenreColorPipe,
+    CollectionComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
