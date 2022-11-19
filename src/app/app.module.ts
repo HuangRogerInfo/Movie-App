@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ListMovieComponent } from './list-movie/list-movie.component';
 import { DetailMovieComponent } from './detail-movie/detail-movie.component';
+import { MovieGenreColorPipe } from './movie-genre-color.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ListMovieComponent,
-    DetailMovieComponent
+    DetailMovieComponent,
+    MovieGenreColorPipe
   ],
   imports: [
     BrowserModule,
