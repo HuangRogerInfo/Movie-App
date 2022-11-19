@@ -10,8 +10,8 @@ import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: ListMovieComponent },
-  { path: 'collection', component: ProfileComponent },
-  { path: 'profile', component: CollectionComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'collection', component: CollectionComponent },
   { path: 'films/:id', component: DetailMovieComponent }
 ];
 
