@@ -9,6 +9,7 @@ import { DetailMovieComponent } from './detail-movie/detail-movie.component';
 import { MovieGenreColorPipe } from './movie-genre-color.pipe';
 import { CollectionComponent } from './collection/collection.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MovieFormComponent } from './movie-form/movie-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProfileComponent } from './profile/profile.component';
     DetailMovieComponent,
     MovieGenreColorPipe,
     CollectionComponent,
-    ProfileComponent
+    ProfileComponent,
+    MovieFormComponent
   ],
   imports: [
     BrowserModule,
