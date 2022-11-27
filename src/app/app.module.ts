@@ -10,6 +10,7 @@ import { MovieGenreColorPipe } from './movie-genre-color.pipe';
 import { CollectionComponent } from './collection/collection.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MovieFormComponent } from './movie-form/movie-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MovieFormComponent } from './movie-form/movie-form.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

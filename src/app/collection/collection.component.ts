@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Film } from '../film';
 import { FilmService } from '../film.service';
+import { OpinionsService } from '../opinions.service';
 
 @Component({
   selector: 'app-collection',
@@ -13,14 +14,14 @@ export class CollectionComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private filmService: FilmService
+    private filmService: FilmService,
+    public opinionsService:OpinionsService
   ) { }
 
   ngOnInit(): void {
     console.table(this.filmList);
     this.filmList = this.filmService.getFilmList();
   }
-
 
   goToEditFilm(film: Film) {
     this.router.navigate(["/edit/film", film.id])

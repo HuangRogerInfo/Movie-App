@@ -1,1 +1,80 @@
-<p>movie-form works!</p>
+<div class="container pt-5">
+    <div class="columns is-centered">
+        <div class="column is-half has-text-centered">
+            <h4 class="title">Ajouter à la collection</h4>
+        </div>
+    </div>
+    <div class="columns is-centered">
+        <div class="column is-half">
+
+            <form>
+                <!-- <div class="field">
+                    <label class="label">Film sélectionné</label>
+                    <div class="control">
+                        <div class="select is-fullwidth">
+                            <select #idValue>
+                                <option value="1">Interstellar</option>
+                                <option value="2">Top Gun</option>
+                            </select>
+                        </div>
+                    </div>
+                </div> -->
+    
+                <div class="field">
+                    <label class="label">Note (/20)</label>
+                    <div class="control">
+                        <input class="input"
+                                name="film-note"
+                                type="number" min="0" max="20" 
+                                placeholder="Note entre 0 et 20"
+                                required
+                                [(ngModel)]="opinionsService.opinionNote">
+                    </div>
+                </div>
+                  
+                <div class="field">
+                    <label class="label">Critique</label>
+                    <div class="control">
+                        <textarea class="textarea"
+                                name="film-avis" 
+                                placeholder="Textarea"
+                                required
+                                [(ngModel)]="opinionsService.opinionContent">
+                        </textarea>
+                    </div>
+                </div>
+                  
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button (click)="opinionsService.addOpinion()" class="button is-link">Ajouter</button>
+                    </div>
+                    <div class="control">
+                        <a class="button is-link is-light" href="/collection">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="columns is-multiline">
+        <div class="column is-2" *ngFor="let opinion of opinionsService.opinions">
+            <div class="card">
+                <header class="card-header">
+                  <p class="card-header-title">
+                    ID = {{opinion.id}}
+                  </p>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    {{opinion.avis}}
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <a href="#" class="card-footer-item">Edit</a>
+                  <a (click)="opinionsService.deleteOpinion(opinion)" class="card-footer-item">Delete</a>
+                </footer>
+              </div>
+        </div>
+    </div>
+
+</div>
