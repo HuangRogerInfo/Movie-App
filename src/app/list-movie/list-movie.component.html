@@ -1,45 +1,26 @@
-<div class="container">
-    <div class="columns pt-5">
-        <div class="column">
-            <h1 class="title"> Movie Database</h1>
-            <h2 class="subtitle">La liste des films disponibles</h2>
-        </div>
-    </div>
-
-    <div class="columns">
-        <div class="column is-8">
-            <div class="field has-addons">
-                <div class="control">
-                    <input class="input" type="text" placeholder="Find a movie">
-                </div>
-                <div class="control">
-                    <a class="button is-info">
-                        Search
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="columns is-multiline">
+<section class="hero is-fullheight">
+  <div class="hero-body has-text-centered">
+    <div class="container">
+      <div class="columns is-multiline">
         <div *ngFor="let vfilm of filmList" class="column is-2">
-
-            <div (click)="goToFilm(vfilm)" class="card">
-                <div class="card-image">
-                    <figure class="image is-square">
-                        <img [src]="vfilm.picture" />
-                    </figure>
-                </div>
-
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-content">
-                            <p class="title is-4">{{vfilm.title}}</p>
-                            <p class="subtitle is-6">{{vfilm.date | date:"yyyy"}}</p>
-                        </div>
-                    </div>
-                </div>
+          <div (click)="goToFilm(vfilm)" class="card">
+            <div class="card-image">
+              <figure class="image is-square">
+                <img [src]="vfilm.picture" />
+              </figure>
             </div>
+
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-4">{{ vfilm.title }}</p>
+                  <p class="subtitle is-6">{{ vfilm.date | date : "yyyy" }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+</section>

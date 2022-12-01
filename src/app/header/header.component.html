@@ -19,11 +19,13 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href=""> Movies </a>
+      <a class="navbar-item" href="/films"> Movies </a>
 
-      <a class="navbar-item" href="/collection"> Collection </a>
+      <a class="navbar-item" href="/collection" *ngIf="isLoggedIn()">
+        Collection
+      </a>
 
-      <a class="navbar-item" href="/profile"> Profile </a>
+      <a class="navbar-item" href="/profile" *ngIf="isLoggedIn()"> Profile </a>
     </div>
 
     <div class="navbar-end">
