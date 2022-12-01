@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', component: ListMovieComponent },
+  { path: 'films', component: ListMovieComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'collection', component: CollectionComponent },
   { path: 'add', component: MovieFormComponent },
