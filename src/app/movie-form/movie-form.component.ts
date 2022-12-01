@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Film } from '../film';
+import { FilmService } from '../film.service';
+import { Opinion } from '../opinion';
 import { OpinionsService } from '../opinions.service';
 
 @Component({
@@ -7,13 +10,19 @@ import { OpinionsService } from '../opinions.service';
   styleUrls: ['./movie-form.component.scss']
 })
 export class MovieFormComponent implements OnInit{
+  filmList: Film[] | undefined;
+  opinionList: Opinion[] | undefined;
 
-  constructor(public opinionsService:OpinionsService) { }
+  constructor(
+    public filmService: FilmService,
+    public opinionsService : OpinionsService
+  ) { }
 
   ngOnInit(): void {
+    this.filmList = this.filmService.getFilmList();
+    this.opinionList = this.opinionsService.getOpinionList();
   }
-
+  
   onSubmit(){
-    
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Film } from '../film';
 import { FilmService } from '../film.service';
+import { Opinion } from '../opinion';
 import { OpinionsService } from '../opinions.service';
 
 @Component({
@@ -11,21 +12,27 @@ import { OpinionsService } from '../opinions.service';
 })
 export class CollectionComponent implements OnInit {
   filmList: Film[];
+  opinionList: Opinion[];
 
   constructor(
     private router: Router,
-    private filmService: FilmService,
+    public filmService: FilmService,
     public opinionsService:OpinionsService
   ) { }
 
   ngOnInit(): void {
     console.table(this.filmList);
     this.filmList = this.filmService.getFilmList();
+    this.opinionList = this.opinionsService.getOpinionList();
   }
 
-  goToEditFilm(film: Film) {
-    this.router.navigate(["/edit/film", film.id])
+  goToEditFilm(film: Film | undefined) {
+    if(film){
+      this.router.navigate(["/avis", film.id])
+      console.log("hello");
+      
+    }else{
+      this.router.navigate(["/errorpage"])
+    }
   }
-
-
 }

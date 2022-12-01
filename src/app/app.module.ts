@@ -11,6 +11,7 @@ import { CollectionComponent } from './collection/collection.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MovieFormComponent } from './movie-form/movie-form.component';
 import { FormsModule } from '@angular/forms';
+import { DetailAvisComponent } from './detail-avis/detail-avis.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     MovieGenreColorPipe,
     CollectionComponent,
     ProfileComponent,
-    MovieFormComponent
+    MovieFormComponent,
+    DetailAvisComponent
   ],
   imports: [
     BrowserModule,

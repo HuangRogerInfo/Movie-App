@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { DetailAvisComponent } from './detail-avis/detail-avis.component';
 import { OPINIONS } from './mock-film-opinion';
 import { Opinion } from './opinion';
 
@@ -7,8 +8,9 @@ import { Opinion } from './opinion';
 })
 export class OpinionsService {
 
-  opinionContent:string;
-  opinionNote:string;
+  opinionCourant:string;
+  noteCourante:string;
+  idFilmCourant:number;
 
   opinions:Array<Opinion> = OPINIONS;
 
@@ -17,12 +19,16 @@ export class OpinionsService {
   addOpinion():void{
     var uneOpinion:Opinion = {
       id:Math.floor(Math.random() * 10),
-      avis:this.opinionContent,
-      note:this.opinionNote
+      avis:this.opinionCourant,
+      note:this.noteCourante,
+      idFilm:this.idFilmCourant
     }
-    this.opinionContent = "";
-    this.opinionNote = "";
     this.opinions.push(uneOpinion);
+
+    //Remise a zero
+    this.opinionCourant = "";
+    this.noteCourante = "";
+    this.idFilmCourant = 0;
   }
 
   deleteOpinion(uneOpinion:Opinion):void{
@@ -34,5 +40,14 @@ export class OpinionsService {
     var index = this.opinions.indexOf(uneOpinion);
     this.opinions.splice(index,1);
     this.opinions.push(uneOpinion);
+  }
+
+  getOpinionList():Opinion[]{
+    return OPINIONS;
+  }
+
+  getOpinionId(filmId:number):Opinion | undefined{
+    console.log(filmId);
+    return OPINIONS.find(avis => avis.idFilm == filmId)
   }
 }

@@ -16,8 +16,8 @@
 
     <div class="columns is-multiline">
 
-        <div class="column is-2">
-            <div class="card">
+        <div  *ngFor="let opinion of opinionList" class="column is-2"  >
+            <div (click)="goToEditFilm(filmService.getFilmId(opinion.idFilm))" class="card">
                 <div class="card-image">
                     <figure class="image is-4by5">
                         <img src="https://bulma.io/images/placeholders/256x256.png">
@@ -27,53 +27,13 @@
                 <div class="card-content p-2">
                     <div class="media">
                         <div class="media-content">
-                            <p class="title is-4"> Titre </p>
-                            <p class="subtitle is-6">2022</p>
+                            <p class="title is-4"> {{filmService.getFilmId(opinion.idFilm)?.title}} </p>
+                            <p class="subtitle is-6">{{filmService.getFilmId(opinion.idFilm)?.date |date:"yyyy"}}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="column is-2">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="image is-4by5">
-                        <img src="https://bulma.io/images/placeholders/256x256.png">
-                    </figure>
-                </div>
-
-                <div class="card-content p-2">
-                    <div class="media">
-                        <div class="media-content">
-                            <p class="title is-4"> Titre </p>
-                            <p class="subtitle is-6">2022</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="column is-2">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="image is-4by5">
-                        <img src="https://bulma.io/images/placeholders/256x256.png">
-                    </figure>
-                </div>
-
-                <div class="card-content p-2">
-                    <div class="media">
-                        <div class="media-content">
-                            <p class="title is-4"> Titre </p>
-                            <p class="subtitle is-6">2022</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
     </div>
 
 

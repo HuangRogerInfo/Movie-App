@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Opinion } from '../opinion';
 
 import { ListMovieComponent } from './list-movie.component';
 

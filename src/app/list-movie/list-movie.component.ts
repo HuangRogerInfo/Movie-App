@@ -14,7 +14,7 @@ export class ListMovieComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private filmService: FilmService
+    private filmService: FilmService,
   ) { }
 
   ngOnInit(): void {

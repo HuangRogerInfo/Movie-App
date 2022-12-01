@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CollectionComponent } from './collection/collection.component';
+import { DetailAvisComponent } from './detail-avis/detail-avis.component';
 import { DetailMovieComponent } from './detail-movie/detail-movie.component';
 import { FilmService } from './film.service';
 import { ListMovieComponent } from './list-movie/list-movie.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'collection', component: CollectionComponent },
   { path: 'edit', component: MovieFormComponent },
-  { path: 'films/:id', component: DetailMovieComponent }
+  { path: 'films/:id', component: DetailMovieComponent },
+  { path : 'avis/:id', component:DetailAvisComponent }
 ];
 
 @NgModule({
