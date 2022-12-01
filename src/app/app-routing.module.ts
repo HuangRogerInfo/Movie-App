@@ -7,9 +7,10 @@ import { DetailMovieComponent } from './detail-movie/detail-movie.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { FilmService } from './film.service';
 import { ListMovieComponent } from './list-movie/list-movie.component';
+import { LoginComponent } from './login/login.component';
 import { MovieFormComponent } from './movie-form/movie-form.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', component: ListMovieComponent },
@@ -17,14 +18,16 @@ const routes: Routes = [
   { path: 'collection', component: CollectionComponent },
   { path: 'add', component: MovieFormComponent },
   { path: 'films/:id', component: DetailMovieComponent },
-  { path : 'avis/:id', component:DetailAvisComponent },
-  { path : 'edit/:id', component:EditFormComponent }
+  { path: 'avis/:id', component: DetailAvisComponent },
+  { path: 'edit/:id', component: EditFormComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: [FilmService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
