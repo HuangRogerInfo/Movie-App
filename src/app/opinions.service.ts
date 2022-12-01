@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { find } from 'rxjs';
 import { DetailAvisComponent } from './detail-avis/detail-avis.component';
+import { FilmService } from './film.service';
 import { OPINIONS } from './mock-film-opinion';
 import { Opinion } from './opinion';
 
@@ -37,9 +39,18 @@ export class OpinionsService {
   }
 
   saveOpinion(uneOpinion:Opinion):void{
-    var index = this.opinions.indexOf(uneOpinion);
-    this.opinions.splice(index,1);
-    this.opinions.push(uneOpinion);
+    console.log("beforesaved",this.opinions);
+    
+    var toReplace = this.opinions.find(avis => avis.idFilm == uneOpinion.idFilm);
+    if(toReplace){
+      var index = this.opinions.indexOf(toReplace);
+      this.opinions.splice(index,1);
+      this.opinions.push(uneOpinion);
+      console.log("saved",this.opinions);
+    }
+    else{
+      console.log("not saved ! no existing opinions on this movie");
+    }
   }
 
   getOpinionList():Opinion[]{

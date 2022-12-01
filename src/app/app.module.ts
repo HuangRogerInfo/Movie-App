@@ -11,7 +11,7 @@ import { MovieGenreColorPipe } from './movie-genre-color.pipe';
 import { CollectionComponent } from './collection/collection.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MovieFormComponent } from './movie-form/movie-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetailAvisComponent } from './detail-avis/detail-avis.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,8 +37,12 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+<<<<<<< HEAD
     BrowserAnimationsModule,
     HttpClientModule,
+=======
+    ReactiveFormsModule
+>>>>>>> c3a39f0a9e3c47640596bd13e3ab60399237738b
   ],
   providers: [],
   bootstrap: [AppComponent],
