@@ -28,9 +28,15 @@ export class CollectionComponent implements OnInit {
 
   goToAvisFilm(film: Film | undefined) {
     if(film){
-      this.router.navigate(["/avis", film.id])
-      console.log("hello");
-      
+      this.router.navigate(["/avis", film.id])      
+    }else{
+      this.router.navigate(["/errorpage"])
+    }
+  }
+
+  goToEditFilm(film: Film | undefined) {
+    if(film){
+      this.router.navigate(["/edit", film.id])
     }else{
       this.router.navigate(["/errorpage"])
     }

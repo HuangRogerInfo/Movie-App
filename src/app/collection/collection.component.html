@@ -34,12 +34,11 @@
                 <footer class="card-footer">
                     <p class="card-footer-item p-0">
                         <span>
-                            <a href="/collection" class="card-footer-item">Edit</a>
+                            <a (click)="goToEditFilm(filmService.getFilmId(opinion.idFilm))" class="card-footer-item">Edit</a>
                         </span>
                       </p>
                     <p class="card-footer-item p-0">
                       <span>
-                        
                         <a (click)="opinionsService.deleteOpinion(opinion)" class="card-footer-item">Delete</a>
                       </span>
                     </p>
