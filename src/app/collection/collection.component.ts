@@ -26,7 +26,7 @@ export class CollectionComponent implements OnInit {
     this.opinionList = this.opinionsService.getOpinionList();
   }
 
-  goToEditFilm(film: Film | undefined) {
+  goToAvisFilm(film: Film | undefined) {
     if(film){
       this.router.navigate(["/avis", film.id])
       console.log("hello");

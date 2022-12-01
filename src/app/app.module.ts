@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { MovieFormComponent } from './movie-form/movie-form.component';
 import { FormsModule } from '@angular/forms';
 import { DetailAvisComponent } from './detail-avis/detail-avis.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DetailAvisComponent } from './detail-avis/detail-avis.component';
     CollectionComponent,
     ProfileComponent,
     MovieFormComponent,
-    DetailAvisComponent
+    DetailAvisComponent,
+    EditFormComponent
   ],
   imports: [
     BrowserModule,

@@ -55,27 +55,33 @@
         </div>
     </div>
 
-    <div class="columns is-multiline">
+    <!-- TEST -->
+    <div class="columns is-centered">
+        <div class="column is-half">
+            <div class="columns is-multiline">
 
-        <div class="column is-2" *ngFor="let opinion of opinionsService.opinions">
-            <div class="card">
-                <header class="card-header">
-                  <p class="card-header-title">
-                    ID = {{opinion.id}}
-                  </p>
-                </header>
-                <div class="card-content">
-                  <div class="content">
-                    {{opinion.avis}}
-                  </div>
+                <div class="column is-4" *ngFor="let opinion of opinionsService.opinions">
+                    <div class="card">
+                        <header class="card-header">
+                          <p class="card-header-title">
+                            ID = {{opinion.id}}
+                          </p>
+                        </header>
+                        <div class="card-content">
+                          <div class="content">
+                            {{opinion.avis}}
+                          </div>
+                        </div>
+                        <footer class="card-footer">
+                          <a href="#" class="card-footer-item">Edit</a>
+                          <a (click)="opinionsService.deleteOpinion(opinion)" class="card-footer-item">Delete</a>
+                        </footer>
+                      </div>
                 </div>
-                <footer class="card-footer">
-                  <a href="#" class="card-footer-item">Edit</a>
-                  <a (click)="opinionsService.deleteOpinion(opinion)" class="card-footer-item">Delete</a>
-                </footer>
-              </div>
+            </div>
         </div>
     </div>
+    
 
     
 
