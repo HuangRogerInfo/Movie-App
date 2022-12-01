@@ -37,12 +37,9 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-<<<<<<< HEAD
     BrowserAnimationsModule,
     HttpClientModule,
-=======
-    ReactiveFormsModule
->>>>>>> c3a39f0a9e3c47640596bd13e3ab60399237738b
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
