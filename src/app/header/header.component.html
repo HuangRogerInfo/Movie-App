@@ -1,7 +1,7 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="">
-      <img src="../../assets/logo v1.png" width="50" height="50" />
+      <img src="../../assets/logo v1.png" />
     </a>
 
     <a
@@ -21,11 +21,16 @@
     <div class="navbar-start">
       <a class="navbar-item" href="/films"> Movies </a>
 
-      <a class="navbar-item" href="/collection" *ngIf="isLoggedIn()">
+      <!-- <a class="navbar-item" href="/collection" *ngIf="isLoggedIn()">
+        Collection
+      </a> -->
+
+      <a class="navbar-item" href="/collection">
         Collection
       </a>
 
-      <a class="navbar-item" href="/profile" *ngIf="isLoggedIn()"> Profile </a>
+      <!-- <a class="navbar-item" href="/profile" *ngIf="isLoggedIn()"> Profile </a> -->
+      <a class="navbar-item" href="/profile"> Profile </a>
     </div>
 
     <div class="navbar-end">
