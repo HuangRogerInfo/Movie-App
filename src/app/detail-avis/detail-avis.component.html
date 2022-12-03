@@ -1,34 +1,35 @@
-<div *ngIf="avis && film" class="container pt-5 ">
-    <div class="columns">
-        <div class="column is-2 is-offset-2">
-            <figure class="image is-4by5 mb-3">
-                <img src="https://bulma.io/images/placeholders/128x128.png">
-            </figure>
-            <div class="title is-4 mb-1">
-                {{ film.title }}
-            </div>
-            <div class="date mb-2">2021 | 1h46 | Rank #2</div>
-            <div class="tags genre mb-0">
-                <span *ngFor="let type of film.type" class="{{ type | movieGenreColor }}">
-                    {{ type }}
-                </span>
-            </div>
-        </div>
-        <div class="column is-6">
-            <div class="card">
-                <div class="card-content">
-                  <div class="content">
-                    <p>
-                        <span class="title is-4">
-                            Ma note : {{avis.note}}/20
-                        </span>
-                    </p>
-                    <p>
-                        {{avis.avis}}
-                    </p>
-                  </div>
-                </div>
-              </div>
-        </div>
+<div *ngIf="avis && film" class="container pt-5">
+  <div class="columns">
+    <div class="column is-2 is-offset-2">
+      <figure class="image is-4by5 mb-3">
+        <img src="https://bulma.io/images/placeholders/128x128.png" />
+      </figure>
+      <div class="title is-4 mb-1">
+        {{ film.title }}
+      </div>
+      <div class="date mb-2">2021 | 1h46 | Rank #2</div>
+      <div class="tags genre mb-0">
+        <span
+          *ngFor="let type of film.categories"
+          class="{{ type | movieGenreColor }}"
+        >
+          {{ type }}
+        </span>
+      </div>
     </div>
+    <div class="column is-6">
+      <div class="card">
+        <div class="card-content">
+          <div class="content">
+            <p>
+              <span class="title is-4"> Ma note : {{ avis.note }}/20 </span>
+            </p>
+            <p>
+              {{ avis.avis }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
