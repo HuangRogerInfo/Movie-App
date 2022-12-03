@@ -1,260 +1,131 @@
 <div class="container">
-  <div class="columns">
-    <div class="column is-4 has-text-centered">
-      <div class="box pl-0 pr-0 pb-0">
-        <figure class="image is-128x128 is-inline-block">
-          <img
-            class="is-rounded"
-            src="https://bulma.io/images/placeholders/128x128.png"
-          />
-        </figure>
+  <div class="columns pt-5">
 
-        <h1 class="title">{{authService.connectedUser.login }}</h1>
-        <h2 class="subtitle">{{authService.connectedUser.fullName }}</h2>
+    <div class="column is-6 has-text-centered is-offset-3">
 
-        <div class="box has-background-light is-shadowless">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
-        </div>
-
-        <table class="table is-inline-block">
-          <tbody>
-            <tr>
-              <td>Movie added</td>
-              <td>21</td>
-            </tr>
-            <tr>
-              <td>Reviews</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>Average Stars</td>
-              <td>3,6</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="box has-background-light is-shadowless">
-          <div class="buttons are-small is-inline-block">
-            <button class="button">
-              <span class="icon">
-                <i class="fab fa-github"></i>
-              </span>
-              <span>Ecrire un message</span>
-            </button>
-
-            <button class="button">
-              <span class="icon">
-                <i class="fab fa-github"></i>
-              </span>
-              <span>Aimer le profil</span>
-            </button>
-          </div>
+      <div class=" columns">
+        <div class="column">
+          <figure class="image is-128x128 is-inline-block">
+            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" />
+          </figure>
         </div>
       </div>
-    </div>
 
-    <div class="column is-8">
-      <div class="box pt-0">
-        <div class="columns">
-          <div class="column is-12">
-            <h4 class="title is-4">Favorite Movies</h4>
-          </div>
+      <div class="columns">
+        <div class="column">
+          <h1 class="title">{{authService.connectedUser.login }}</h1>
+          <h2 class="subtitle">{{authService.connectedUser.fullName }}</h2>
+          <h1 class="title">Test</h1>
+          <h2 class="subtitle">Test Test</h2>
         </div>
+      </div>
 
-        <div class="columns is-multiline">
-          <div class="column is-one-fifth">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by5">
-                  <img src="https://bulma.io/images/placeholders/256x256.png" />
-                </figure>
+      <div class="columns">
+        <div class="column">
+          <article class="media">
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting
+                  industry. Lorem Ipsum has been the industry's standard dummy text ever
+                  since the 1500s, when an unknown printer took a galley of type and
+                  scrambled it to make a type specimen book.
+                </p>
               </div>
+              <nav class="level">
+                <a class="level-item">
+                  <span class="icon is-small"><i class="fas fa-pen"></i></span>
+                </a>
+              </nav>
+            </div>
+          </article>
+        </div>
+      </div>
 
-              <div class="card-content p-2">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-6">Titre</p>
-                    <p class="subtitle is-7">2022</p>
-                  </div>
-                </div>
+      <div class="columns pt-5">
+        <div class="column">
+          <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Movies</p>
+                <p class="title">143</p>
               </div>
             </div>
-          </div>
-
-          <div class="column is-one-fifth">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by5">
-                  <img src="https://bulma.io/images/placeholders/256x256.png" />
-                </figure>
-              </div>
-
-              <div class="card-content p-2">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-6">Titre</p>
-                    <p class="subtitle is-7">2022</p>
-                  </div>
-                </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Reviews</p>
+                <p class="title">123</p>
               </div>
             </div>
-          </div>
-
-          <div class="column is-one-fifth">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by5">
-                  <img src="https://bulma.io/images/placeholders/256x256.png" />
-                </figure>
-              </div>
-
-              <div class="card-content p-2">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-6">Titre</p>
-                    <p class="subtitle is-7">2022</p>
-                  </div>
-                </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Avg Stars</p>
+                <p class="title">3.6</p>
               </div>
             </div>
-          </div>
+          </nav>
+        </div>
+      </div>
 
-          <div class="column is-one-fifth">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by5">
-                  <img src="https://bulma.io/images/placeholders/256x256.png" />
-                </figure>
-              </div>
-
-              <div class="card-content p-2">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-6">Titre</p>
-                    <p class="subtitle is-7">2022</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column is-one-fifth">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by5">
-                  <img src="https://bulma.io/images/placeholders/256x256.png" />
-                </figure>
-              </div>
-
-              <div class="card-content p-2">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-6">Titre</p>
-                    <p class="subtitle is-7">2022</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div class="columns">
+        <div class="column">
+          <hr>
+          <div class="heading" style="font-size: 25px;">
+            Top 3 movies
           </div>
         </div>
       </div>
 
-      <div class="box pt-0">
-        <div class="columns">
-          <div class="column is-12">
-            <h4 class="title is-4">Favorite Actors</h4>
+      <div class="columns is-multiline">
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by5">
+                <img src="https://bulma.io/images/placeholders/256x256.png" />
+              </figure>
+            </div>
+
+            <div class="card-content p-2">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-6">Titre</p>
+                  <p class="subtitle is-7">2022</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by5">
+                <img src="https://bulma.io/images/placeholders/256x256.png" />
+              </figure>
+            </div>
 
-        <div class="columns is-multiline">
-          <div class="column is-one-fifth">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-5by5">
-                  <img src="https://bulma.io/images/placeholders/256x256.png" />
-                </figure>
-              </div>
-
-              <div class="card-content p-2">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-6">Titre</p>
-                  </div>
+            <div class="card-content p-2">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-6">Titre</p>
+                  <p class="subtitle is-7">2022</p>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="column is-one-fifth">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-5by5">
-                  <img src="https://bulma.io/images/placeholders/256x256.png" />
-                </figure>
-              </div>
-
-              <div class="card-content p-2">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-6">Titre</p>
-                  </div>
-                </div>
-              </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by5">
+                <img src="https://bulma.io/images/placeholders/256x256.png" />
+              </figure>
             </div>
-          </div>
 
-          <div class="column is-one-fifth">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-5by5">
-                  <img src="https://bulma.io/images/placeholders/256x256.png" />
-                </figure>
-              </div>
-
-              <div class="card-content p-2">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-6">Titre</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column is-one-fifth">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-5by5">
-                  <img src="https://bulma.io/images/placeholders/256x256.png" />
-                </figure>
-              </div>
-
-              <div class="card-content p-2">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-6">Titre</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column is-one-fifth">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-5by5">
-                  <img src="https://bulma.io/images/placeholders/256x256.png" />
-                </figure>
-              </div>
-
-              <div class="card-content p-2">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-6">Titre</p>
-                  </div>
+            <div class="card-content p-2">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-6">Titre</p>
+                  <p class="subtitle is-7">2022</p>
                 </div>
               </div>
             </div>
@@ -262,5 +133,6 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>
