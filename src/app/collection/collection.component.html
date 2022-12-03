@@ -1,51 +1,69 @@
 <div class="container">
-
-    <div class="columns pt-5">
-        <div class="column">
-            <h1 class="title"> My collection</h1>
-            <h2 class="subtitle">La liste des films ajoutés</h2>
-        </div>
+  <div class="columns pt-5">
+    <div class="column">
+      <h1 class="title">My collection</h1>
+      <h2 class="subtitle">La liste des films ajoutés</h2>
     </div>
+  </div>
 
-    <div class="columns">
-        <div class="column">
-            <a class="button is-success" href="/add">Ajouter un film</a>
-        </div>
+  <div class="columns">
+    <div class="column">
+      <a
+        class="button is-success"
+        routerLink="/add"
+        routerLinkActive="active-link"
+        >Ajouter un film</a
+      >
     </div>
+  </div>
 
-    <div class="columns is-multiline">
+  <div class="columns is-multiline">
+    <div *ngFor="let opinion of opinionList" class="column is-2">
+      <div class="card">
+        <div
+          class="card-image"
+          (click)="goToAvisFilm(filmService.getFilmId(opinion.idFilm))"
+        >
+          <figure class="image is-4by5">
+            <img src="https://bulma.io/images/placeholders/256x256.png" />
+          </figure>
+        </div>
 
-        <div  *ngFor="let opinion of opinionList" class="column is-2"  >
-            <div class="card">
-                <div class="card-image" (click)="goToAvisFilm(filmService.getFilmId(opinion.idFilm))">
-                    <figure class="image is-4by5">
-                        <img src="https://bulma.io/images/placeholders/256x256.png">
-                    </figure>
-                </div>
-
-                <div class="card-content p-2">
-                    <div class="media">
-                        <div class="media-content">
-                            <p class="title is-4"> {{filmService.getFilmId(opinion.idFilm)?.title}} </p>
-                            <p class="subtitle is-6">{{filmService.getFilmId(opinion.idFilm)?.date |date:"yyyy"}}</p>
-                        </div>
-                    </div>
-                </div>
-                <footer class="card-footer">
-                    <p class="card-footer-item p-0">
-                        <span>
-                            <a (click)="goToEditFilm(filmService.getFilmId(opinion.idFilm))" class="card-footer-item">Edit</a>
-                        </span>
-                      </p>
-                    <p class="card-footer-item p-0">
-                      <span>
-                        <a (click)="opinionsService.deleteOpinion(opinion)" class="card-footer-item">Delete</a>
-                      </span>
-                    </p>
-                  </footer>
+        <div class="card-content p-2">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">
+                {{ filmService.getFilmId(opinion.idFilm)?.title }}
+              </p>
+              <p class="subtitle is-6">
+                {{
+                  filmService.getFilmId(opinion.idFilm)?.date | date : "yyyy"
+                }}
+              </p>
             </div>
+          </div>
         </div>
+        <footer class="card-footer">
+          <p class="card-footer-item p-0">
+            <span>
+              <a
+                (click)="goToEditFilm(filmService.getFilmId(opinion.idFilm))"
+                class="card-footer-item"
+                >Edit</a
+              >
+            </span>
+          </p>
+          <p class="card-footer-item p-0">
+            <span>
+              <a
+                (click)="opinionsService.deleteOpinion(opinion)"
+                class="card-footer-item"
+                >Delete</a
+              >
+            </span>
+          </p>
+        </footer>
+      </div>
     </div>
-
-
+  </div>
 </div>

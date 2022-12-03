@@ -8,9 +8,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
   connectedUser: any = null;
 
-  constructor(private http: HttpClient) {
-    this.isLogged();
-  }
+  constructor(private http: HttpClient) {}
 
   login(login: any, password: any): Observable<any> {
     return this.http.post(
