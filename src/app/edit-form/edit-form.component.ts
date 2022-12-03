@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FilmService } from '../film.service';
 import { Opinion } from '../opinion';
 import { OpinionsService } from '../opinions.service';
@@ -16,6 +16,7 @@ export class EditFormComponent implements OnInit {
   editForm: FormGroup;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     public opinionsService: OpinionsService,
     public filmService: FilmService,
@@ -42,7 +43,6 @@ export class EditFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Données du formulaire', this.editForm.value)
     if (this.opinion) {
       var newOpinion: Opinion = {
         idFilm: this.opinion.idFilm,
@@ -52,5 +52,6 @@ export class EditFormComponent implements OnInit {
 
       this.opinionsService.saveOpinion(newOpinion);
     }
+    this.router.navigate(["/collection"])
   }
 }
