@@ -33,4 +33,4 @@ const routes: Routes = [
   providers: [FilmService],
   bootstrap: [AppComponent],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

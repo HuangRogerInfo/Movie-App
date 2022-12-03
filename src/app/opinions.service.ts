@@ -37,10 +37,19 @@ export class OpinionsService {
     return false;
   }
 
+  updateNote(uneOpinion: Opinion, note: number) {
+
+    var toModify = this.opinions.find(opinion => opinion.idFilm == uneOpinion.idFilm);
+
+    if (toModify) {
+      toModify.note = note.toString();
+    }
+  }
+
   addEmptyOpinion(Film: Film): void {
     var uneOpinion: Opinion = {
       avis: undefined,
-      note: undefined,
+      note: "0",
       idFilm: Film.id
     }
     this.opinions.push(uneOpinion);

@@ -14,10 +14,14 @@ export class CollectionComponent implements OnInit {
   filmList: Film[];
   opinionList: Opinion[];
 
+  updateRating(newRate: number, opinion: Opinion) {
+    this.opinionsService.updateNote(opinion, newRate);
+  }
+
   constructor(
     private router: Router,
     public filmService: FilmService,
-    public opinionsService:OpinionsService
+    public opinionsService: OpinionsService
   ) { }
 
   ngOnInit(): void {
@@ -27,18 +31,22 @@ export class CollectionComponent implements OnInit {
   }
 
   goToAvisFilm(film: Film | undefined) {
-    if(film){
-      this.router.navigate(["/avis", film.id])      
-    }else{
+    if (film) {
+      this.router.navigate(["/avis", film.id])
+    } else {
       this.router.navigate(["/errorpage"])
     }
   }
 
   goToEditFilm(film: Film | undefined) {
-    if(film){
+    if (film) {
       this.router.navigate(["/edit", film.id])
-    }else{
+    } else {
       this.router.navigate(["/errorpage"])
     }
   }
+
+
+
+
 }

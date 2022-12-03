@@ -9,10 +9,7 @@
       </div>
       <div class="date mb-2">2021 | 1h46 | Rank #2</div>
       <div class="tags genre mb-0">
-        <span
-          *ngFor="let type of film.type"
-          class="{{ type | movieGenreColor }}"
-        >
+        <span *ngFor="let type of film.type" class="{{ type | movieGenreColor }}">
           {{ type }}
         </span>
       </div>
@@ -22,7 +19,7 @@
         <div class="card-content">
           <div class="content">
             <p>
-              <span class="title is-4"> Ma note : {{ avis.note }}/20 </span>
+              <span class="title is-4"> Ma note : {{ avis.note }}/5 </span>
             </p>
             <p>
               {{ avis.avis }}
@@ -31,12 +28,7 @@
         </div>
       </div>
       <div class="control pt-5">
-        <a
-          class="button is-warning"
-          routerLink="/collection"
-          routerLinkActive="active-link"
-          >Return</a
-        >
+        <a class="button is-warning" routerLink="/collection" routerLinkActive="active-link">Return</a>
       </div>
     </div>
   </div>

@@ -37,7 +37,7 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary" *ngIf="!authService.connectedUser" routerLink="/register"
+          <a class="button is-link" *ngIf="!authService.connectedUser" routerLink="/register"
             routerLinkActive="active-link">
             <strong>Sign up</strong>
           </a>
@@ -46,7 +46,7 @@
             Log in
           </a>
 
-          <a class="button is-primary" routerLink="/profile" routerLinkActive="active-link"
+          <a class="button is-link" routerLink="/profile" routerLinkActive="active-link"
             *ngIf="authService.connectedUser">
             <strong>{{ authService.connectedUser.fullName }}</strong>
           </a>

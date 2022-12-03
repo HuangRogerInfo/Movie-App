@@ -28,20 +28,15 @@ export class EditFormComponent implements OnInit {
       this.opinion = this.opinionsService.getOpinionId(+filmId);
     }
 
-    var defautNote = "";
+
     var defautAvis = "";
     if (this.opinion) {
-      if (this.opinion.note) {
-        defautNote = this.opinion.note;
-
-      }
       if (this.opinion.avis) {
         defautAvis = this.opinion.avis;
       }
     }
 
     this.editForm = this.formBuilder.group({
-      note: [defautNote],
       avis: [defautAvis]
     })
   }
@@ -52,7 +47,7 @@ export class EditFormComponent implements OnInit {
       var newOpinion: Opinion = {
         idFilm: this.opinion.idFilm,
         avis: this.editForm.get('avis')?.value,
-        note: this.editForm.get('note')?.value
+        note: this.opinion.note
       }
 
       this.opinionsService.saveOpinion(newOpinion);

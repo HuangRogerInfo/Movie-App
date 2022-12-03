@@ -1,3 +1,11 @@
-.checked {
+.rating {
+    display: flex;
+}
+
+i {
+    color: gray;
+}
+
+.active {
     color: orange;
 }
