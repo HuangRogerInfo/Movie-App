@@ -12,43 +12,47 @@ import { OpinionsService } from '../opinions.service';
 })
 export class EditFormComponent implements OnInit {
 
-  opinion : Opinion | undefined;
-  editForm : FormGroup;
+  opinion: Opinion | undefined;
+  editForm: FormGroup;
 
   constructor(
-    private route:ActivatedRoute,
-    public opinionsService : OpinionsService,
-    public filmService : FilmService,
-    private formBuilder : FormBuilder
+    private route: ActivatedRoute,
+    public opinionsService: OpinionsService,
+    public filmService: FilmService,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
     const filmId: string | null = this.route.snapshot.paramMap.get('id');
-    if(filmId){
+    if (filmId) {
       this.opinion = this.opinionsService.getOpinionId(+filmId);
     }
 
     var defautNote = "";
     var defautAvis = "";
-    if(this.opinion){
-      defautNote = this.opinion.note;
-      defautAvis = this.opinion.avis;
+    if (this.opinion) {
+      if (this.opinion.note) {
+        defautNote = this.opinion.note;
+
+      }
+      if (this.opinion.avis) {
+        defautAvis = this.opinion.avis;
+      }
     }
 
     this.editForm = this.formBuilder.group({
-      note : [defautNote],
-      avis : [defautAvis]
+      note: [defautNote],
+      avis: [defautAvis]
     })
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log('Données du formulaire', this.editForm.value)
-    if(this.opinion){
-      var newOpinion:Opinion = {
-        id:this.opinion.id,
-        idFilm:this.opinion.idFilm,
-        avis:this.editForm.get('avis')?.value,
-        note:this.editForm.get('note')?.value
+    if (this.opinion) {
+      var newOpinion: Opinion = {
+        idFilm: this.opinion.idFilm,
+        avis: this.editForm.get('avis')?.value,
+        note: this.editForm.get('note')?.value
       }
 
       this.opinionsService.saveOpinion(newOpinion);

@@ -1,22 +1,80 @@
 <div class="columns">
   <div class="column is-2 is-offset-1 has-background-light pt-5 test">
-    <div class="field has-addons pt-3">
-      <div class="control is-expanded">
-        <input class="input is-small" type="text" placeholder="Search a movie...">
+
+    <div class="columns">
+      <div class="column">
+        <div class="field has-addons pt-5">
+
+          <div class="control is-expanded">
+            <input class="input is-medium" type="text" placeholder="Search a movie...">
+          </div>
+
+        </div>
       </div>
-      <div class="control">
-        <a class="button is-small is-info">
-          Search
-        </a>
+    </div>
+
+    <div class="columns">
+      <div class="column">
+        <fieldset>
+          <legend>Choose your filter :</legend>
+
+          <div class="checkboxes pt-2">
+            <div>
+              <input type="checkbox" id="Test1">
+              <label for="Test1"> Test1</label>
+            </div>
+            <div>
+              <input type="checkbox" id="Test2">
+              <label for="Test2"> Test2</label>
+            </div>
+            <div>
+              <input type="checkbox" id="Test3">
+              <label for="Test3"> Test3</label>
+            </div>
+            <div>
+              <input type="checkbox" id="Test4">
+              <label for="Test4"> Test4</label>
+            </div>
+            <div>
+              <input type="checkbox" id="Test5">
+              <label for="Test5"> Test5</label>
+            </div>
+          </div>
+
+        </fieldset>
       </div>
     </div>
   </div>
 
+
+
   <div class="column is-8">
     <div class="columns is-multiline pt-5">
-      <div *ngFor="let vfilm of filmList" class="column is-3">
-        <div (click)="goToFilm(vfilm)" class="card">
-          <div class="card-image">
+      <div *ngFor="let vfilm of filmList" class="column is-2">
+        <div class="card">
+          <header *ngIf="opinionService.hasOpinion(vfilm)" class="card-header">
+            <p class="card-header-title">
+              Added
+            </p>
+            <button class="card-header-icon" aria-label="more options">
+              <span class="icon">
+                <i class="fas fa-check" aria-hidden="true"></i>
+              </span>
+            </button>
+          </header>
+
+          <header *ngIf="!opinionService.hasOpinion(vfilm)" class="card-header">
+            <p class="card-header-title">
+              Add to Collection
+            </p>
+            <button (click)="addToCollection(vfilm)" class="card-header-icon" aria-label="more options">
+              <span class="icon">
+                <i class="fas fa-plus" aria-hidden="true"></i>
+              </span>
+            </button>
+          </header>
+
+          <div (click)="goToFilm(vfilm)" class="card-image">
             <figure class="image is-3by4">
               <img src="https://bulma.io/images/placeholders/256x256.png">
             </figure>
@@ -30,6 +88,7 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>

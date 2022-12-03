@@ -10,41 +10,23 @@
         <div class="field">
           <label class="label">Film sélectionné</label>
           <div class="control">
-            <input
-              class="input"
-              type="text"
-              disabled
-              [placeholder]="filmService.getFilmId(opinion.idFilm)?.title"
-            />
+            <input class="input" type="text" disabled [placeholder]="filmService.getFilmId(opinion.idFilm)?.title" />
           </div>
         </div>
 
         <div class="field">
           <label class="label">Note (/20)</label>
           <div class="control">
-            <input
-              class="input"
-              name="film-note"
-              type="number"
-              min="0"
-              max="20"
-              required
-              [placeholder]="opinion.note"
-              formControlName="note"
-            />
+            <input class="input" name="film-note" type="number" min="0" max="20" required [placeholder]="opinion.note"
+              formControlName="note" />
           </div>
         </div>
 
         <div class="field">
           <label class="label">Critique</label>
           <div class="control">
-            <textarea
-              class="textarea"
-              name="film-avis"
-              required
-              [placeholder]="opinion.avis"
-              formControlName="avis"
-            ></textarea>
+            <textarea class="textarea" name="film-avis" required [placeholder]="opinion.avis"
+              formControlName="avis"></textarea>
           </div>
         </div>
 
@@ -53,47 +35,10 @@
             <button type="submit" class="button is-link">Modifier</button>
           </div>
           <div class="control">
-            <a
-              class="button is-link is-light"
-              routerLink="/collection"
-              routerLinkActive="active-link"
-              >Cancel</a
-            >
+            <a class="button is-link is-light" routerLink="/collection" routerLinkActive="active-link">Cancel</a>
           </div>
         </div>
       </form>
-    </div>
-  </div>
-
-  <!-- TEST -->
-  <div class="columns is-centered pt-5">
-    <div class="column is-half">
-      <div class="columns is-multiline">
-        <div
-          class="column is-4"
-          *ngFor="let opinion of opinionsService.opinions"
-        >
-          <div class="card">
-            <header class="card-header">
-              <p class="card-header-title">ID = {{ opinion.idFilm }}</p>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <div class="title is-4">Note : {{ opinion.note }}</div>
-                {{ opinion.avis }}
-              </div>
-            </div>
-            <footer class="card-footer">
-              <a href="#" class="card-footer-item">Edit</a>
-              <a
-                (click)="opinionsService.deleteOpinion(opinion)"
-                class="card-footer-item"
-                >Delete</a
-              >
-            </footer>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>

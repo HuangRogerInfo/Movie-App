@@ -6,17 +6,15 @@
   </div>
   <div class="columns is-centered">
     <div class="column is-half">
-      <form>
+
+      <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
         <div class="field">
           <label class="label">Film sélectionné</label>
           <div class="control">
             <div class="select is-fullwidth">
-              <select #idValue>
-                <option
-                  *ngFor="let opinion of opinionList"
-                  [value]="opinion.idFilm"
-                >
-                  {{ filmService.getFilmId(opinion.idFilm)?.title }}
+              <select formControlName="selectedFilm">
+                <option *ngFor="let film of getNewFilms()" [value]="film.id">
+                  {{ film.title }}
                 </option>
               </select>
             </div>
@@ -26,66 +24,43 @@
         <div class="field">
           <label class="label">Note (/20)</label>
           <div class="control">
-            <input
-              class="input"
-              name="film-note"
-              type="number"
-              min="0"
-              max="20"
-              placeholder="Note entre 0 et 20"
-              required
-              [(ngModel)]="opinionsService.noteCourante"
-            />
+            <input class="input" name="film-note" type="number" min="0" max="20" placeholder="Note entre 0 et 20"
+              formControlName="note" required />
           </div>
         </div>
 
         <div class="field">
           <label class="label">Critique</label>
           <div class="control">
-            <textarea
-              class="textarea"
-              name="film-avis"
-              placeholder="Textarea"
-              required
-              [(ngModel)]="opinionsService.opinionCourant"
-            >
+            <textarea class="textarea" name="film-avis" placeholder="Textarea" formControlName="avis" required>
             </textarea>
           </div>
         </div>
 
         <div class="field is-grouped">
           <div class="control">
-            <button
-              (click)="opinionsService.addOpinion()"
-              class="button is-link"
-            >
+            <button type="submit" class="button is-link">
               Ajouter
             </button>
           </div>
           <div class="control">
-            <a
-              class="button is-link is-light"
-              routerLink="/login"
-              routerLinkActive="active-link"
-              >Cancel</a
-            >
+            <a class="button is-link is-light" routerLink="/login" routerLinkActive="active-link">Cancel</a>
           </div>
         </div>
       </form>
+
+
+
     </div>
   </div>
 
-  <!-- TEST -->
   <div class="columns is-centered">
     <div class="column is-half">
       <div class="columns is-multiline">
-        <div
-          class="column is-4"
-          *ngFor="let opinion of opinionsService.opinions"
-        >
+        <div class="column is-4" *ngFor="let opinion of opinionsService.opinions">
           <div class="card">
             <header class="card-header">
-              <p class="card-header-title">ID = {{ opinion.id }}</p>
+              <p class="card-header-title">Film = {{ opinion.idFilm }}</p>
             </header>
             <div class="card-content">
               <div class="content">
@@ -94,11 +69,7 @@
             </div>
             <footer class="card-footer">
               <a href="#" class="card-footer-item">Edit</a>
-              <a
-                (click)="opinionsService.deleteOpinion(opinion)"
-                class="card-footer-item"
-                >Delete</a
-              >
+              <a (click)="opinionsService.deleteOpinion(opinion)" class="card-footer-item">Delete</a>
             </footer>
           </div>
         </div>
