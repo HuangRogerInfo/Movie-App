@@ -1,154 +1,170 @@
-<div *ngIf="film" class="container pt-5 ">
-
-    <div class="columns mb-4">
-        <div class="column is-2 is-offset-2">
-            <figure class="image is-4by5">
-                <img src="https://bulma.io/images/placeholders/128x128.png">
-            </figure>
-        </div>
-        <div class="column is-8">
-            <div class="title">
-                {{ film.title }}
-            </div>
-            <div class="tags genre mb-1">
-                <span *ngFor="let type of film.type" class="{{ type | movieGenreColor }}">
-                    {{ type }}
-                </span>
-            </div>
-            <div class="date mb-1">2021 | 1h46 | Rank #2</div>
-
-            <div class="rating mb-3">
-                <div *ngFor="let i of [1, 2, 3, 4, 5]">
-                    <i class="fa-solid fa-star" [ngClass]="{'active':i<=film.id}">
-                    </i>
-                </div>
-            </div>
-
-
-            <div class="acteur is-size-7 has-text-grey"> Réalisateur : Christopher Nolan</div>
-            <div class="acteur is-size-7 has-text-grey">
-                Acteurs :
-                <span *ngFor="let acteur of film.actors">
-                    {{ acteur }}.
-                </span>
-            </div>
-        </div>
+<div *ngIf="film" class="container pt-5">
+  <div class="columns mb-4">
+    <div class="column is-2 is-offset-2">
+      <figure class="image is-4by5">
+        <img src="https://bulma.io/images/placeholders/128x128.png" />
+      </figure>
     </div>
+    <div class="column is-8">
+      <div class="title">
+        {{ film.title }}
+      </div>
+      <div class="tags genre mb-1">
+        <span
+          *ngFor="let type of film.categories"
+          class="{{ type | movieGenreColor }}"
+        >
+          {{ type }}
+        </span>
+      </div>
+      <div class="date mb-1">2021 | 1h46 | Rank #2</div>
 
-    <div class="columns mb-5">
-        <div class="column is-8 is-offset-2">
-
-            <div class="columns">
-                <div class="column">
-                    <div class="card has-background-dark">
-                        <header class="card-header ">
-                            <p class="card-header-title has-text-light">
-                                Synopsis
-                            </p>
-                        </header>
-                    </div>
-                </div>
-            </div>
-
-            <div class="columns">
-                <div class="column">
-                    <p>
-                        Le film raconte les aventures d’un groupe d’explorateurs qui utilisent une faille récemment
-                        découverte dans l’espace-temps afin de repousser les limites humaines et partir à la conquête
-                        des
-                        distances astronomiques dans un voyage interstellaire.
-                    </p>
-                </div>
-            </div>
-
-            <div class="columns">
-                <div class="column is-6">
-                    <figure class="image is-16by9">
-                        <iframe class="has-ratio" width="560" height="315"
-                            src="https://www.youtube.com/embed/VaOijhK3CRU?controls=0" title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </figure>
-                </div>
-                <div class="column is-6">
-                    <figure class="image is-16by9">
-                        <iframe class="has-ratio" width="560" height="315"
-                            src="https://www.youtube.com/embed/HsPP6xSzQoE" title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </figure>
-                </div>
-            </div>
-
+      <div class="rating mb-3">
+        <div *ngFor="let i of [1, 2, 3, 4, 5]">
+          <i class="fa-solid fa-star" [ngClass]="{ active: i <= film._id }">
+          </i>
         </div>
+      </div>
+
+      <div class="acteur is-size-7 has-text-grey">
+        Réalisateur : Christopher Nolan
+      </div>
+      <div class="acteur is-size-7 has-text-grey">
+        Acteurs :
+        <span *ngFor="let acteur of film.actors"> {{ acteur }}. </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="columns mb-5">
+  <div class="column is-8 is-offset-2">
+    <div class="columns">
+      <div class="column">
+        <div class="card has-background-dark">
+          <header class="card-header">
+            <p class="card-header-title has-text-light">Synopsis</p>
+          </header>
+        </div>
+      </div>
     </div>
 
     <div class="columns">
-        <div class="column is-8 is-offset-2">
-            <div class="columns mb-2">
-                <div class="column">
-                    <div class="card has-background-dark">
-                        <header class="card-header ">
-                            <p class="card-header-title has-text-light">
-                                Critiques
-                            </p>
-                        </header>
-                    </div>
-                </div>
-            </div>
-
-            <div class="columns is-multiline">
-                <div class="column is-4">
-                    <div class="card">
-                        <div class="card-content pt-2 pb-2">
-                            <div class="content is-size-7">
-                                Interstellar est de ces films qui déchainent les passions, entre adorateurs et
-                                détracteurs les plus obstinés, il n'y a parfois qu'un pas. Loin de moi tout sectarisme,
-                                mais en ce qui me concerne je suis à fond avec les premiers.
-                                <a href="#">@bulmaio</a>
-                                <br>
-                                <time class="has-text-weight-bold"> 09:31 AM - 2 Feb 2017 </time>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column is-4">
-                    <div class="card">
-                        <div class="card-content pt-2 pb-2">
-                            <div class="content is-size-7">
-                                "Interstellar" de Christopher Nolan est tout de même un film diablement intéressant et
-                                assurément bien meilleur que ne l'était le surcoté et récent "Gravity" qui m'avait déçu
-                                malgré des images époustouflantes..
-                                <a href="#">@Patrick-91</a>
-                                <br>
-                                <time class="has-text-weight-bold"> 01:09 AM - 2 Jul 2016 </time>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column is-4">
-                    <div class="card">
-                        <div class="card-content pt-2 pb-2">
-                            <div class="content is-size-7">
-                                Le film parfait que j'ai regardé dans le silence le plus complet dans une maison de
-                                campagne dans les montagnes à 02h30 du matin : la claque cinématographie de ma vie.
-                                <a href="#">@JeanD</a>
-                                <br>
-                                <time class="has-text-weight-bold"> 11:09 PM - 1 Jan 2016 </time>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
+      <div class="column">
+        <p>
+          Le film raconte les aventures d’un groupe d’explorateurs qui utilisent
+          une faille récemment découverte dans l’espace-temps afin de repousser
+          les limites humaines et partir à la conquête des distances
+          astronomiques dans un voyage interstellaire.
+        </p>
+      </div>
     </div>
 
+    <div class="columns">
+      <div class="column is-6">
+        <figure class="image is-16by9">
+          <iframe
+            class="has-ratio"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/VaOijhK3CRU?controls=0"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </figure>
+      </div>
+      <div class="column is-6">
+        <figure class="image is-16by9">
+          <iframe
+            class="has-ratio"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/HsPP6xSzQoE"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </figure>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="columns">
+  <div class="column is-8 is-offset-2">
+    <div class="columns mb-2">
+      <div class="column">
+        <div class="card has-background-dark">
+          <header class="card-header">
+            <p class="card-header-title has-text-light">Critiques</p>
+          </header>
+        </div>
+      </div>
+    </div>
 
-
-
-
+    <div class="columns is-multiline">
+      <div class="column is-4">
+        <div class="card">
+          <div class="card-content pt-2 pb-2">
+            <div class="content is-size-7">
+              Interstellar est de ces films qui déchainent les passions, entre
+              adorateurs et détracteurs les plus obstinés, il n'y a parfois
+              qu'un pas. Loin de moi tout sectarisme, mais en ce qui me concerne
+              je suis à fond avec les premiers.
+              <a href="#">@bulmaio</a>
+              <br />
+              <time class="has-text-weight-bold"> 09:31 AM - 2 Feb 2017 </time>
+            </div>
+          </div>
+          <footer class="card-footer is-size-7">
+            <a href="#" class="card-footer-item">Voir plus</a>
+            <a href="#" class="card-footer-item">Like</a>
+            <a href="#" class="card-footer-item">Dislike</a>
+          </footer>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="card">
+          <div class="card-content pt-2 pb-2">
+            <div class="content is-size-7">
+              "Interstellar" de Christopher Nolan est tout de même un film
+              diablement intéressant et assurément bien meilleur que ne l'était
+              le surcoté et récent "Gravity" qui m'avait déçu malgré des images
+              époustouflantes..
+              <a href="#">@Patrick-91</a>
+              <br />
+              <time> 01:09 AM - 2 Jul 2016 </time>
+            </div>
+          </div>
+          <footer class="card-footer is-size-7">
+            <a href="#" class="card-footer-item">Voir plus</a>
+            <a href="#" class="card-footer-item">Like</a>
+            <a href="#" class="card-footer-item">Dislike</a>
+          </footer>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="card">
+          <div class="card-content pt-2 pb-2">
+            <div class="content is-size-7">
+              Le film parfait que j'ai regardé dans le silence le plus complet
+              dans une maison de campagne dans les montagnes à 02h30 du matin :
+              la claque cinématographie de ma vie.
+              <a href="#">@JeanD</a>
+              <br />
+              <time> 11:09 PM - 1 Jan 2016 </time>
+            </div>
+          </div>
+          <footer class="card-footer is-size-7">
+            <a href="#" class="card-footer-item">Voir plus</a>
+            <a href="#" class="card-footer-item">Like</a>
+            <a href="#" class="card-footer-item">Dislike</a>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
