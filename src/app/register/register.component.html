@@ -6,34 +6,50 @@
           <form action="" class="box">
             <div class="field">
               <div class="container has-text-centered">
-                <figure class="image is-128x128 is-inline-block">
-                  <img class="is-rounded" src="../../assets/logo v1.png" />
+                <figure class="image is-inline-block">
+                  <img class="is-rounded" src="../../assets/home.png" />
                 </figure>
               </div>
-              <label for="email" class="label">Email</label>
+            </div>
+            <div class="field">
+              <label for="lastName" class="label">Nom</label>
               <div class="control has-icons-left">
                 <input
-                  name="email"
+                  name="lastName"
                   class="input"
                   type="text"
-                  placeholder="test@test.fr"
-                  [(ngModel)]="login"
-                  required
+                  placeholder="Dupont"
+                  [(ngModel)]="lastName"
                 />
                 <span class="icon is-small is-left">
-                  <i class="fa fa-envelope"></i>
+                  <i class="fa fa-user"></i>
                 </span>
               </div>
             </div>
             <div class="field">
-              <label for="fullName" class="label">Nom</label>
+              <label for="firstName" class="label">Prénom</label>
               <div class="control has-icons-left">
                 <input
-                  name="fullName"
+                  name="firstName"
                   class="input"
                   type="text"
-                  placeholder="Jean Dupont"
-                  [(ngModel)]="fullName"
+                  placeholder="Jean"
+                  [(ngModel)]="firstName"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-user"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="username" class="label">Email</label>
+              <div class="control has-icons-left">
+                <input
+                  name="username"
+                  class="input"
+                  type="email"
+                  placeholder="jean.dupont@test.fr"
+                  [(ngModel)]="username"
                 />
                 <span class="icon is-small is-left">
                   <i class="fa fa-user"></i>

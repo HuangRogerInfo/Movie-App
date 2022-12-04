@@ -1,20 +1,26 @@
 <div class="container">
   <div class="columns pt-5">
-
     <div class="column is-6 has-text-centered is-offset-3">
+      <label class="title">{{ authService.connectedUser.data.username }}</label>
+      <span class="subtitle">
+        {{ authService.connectedUser.data.fullName }}
+      </span>
 
-      <div class=" columns">
+      <div class="columns">
         <div class="column">
           <figure class="image is-128x128 is-inline-block">
-            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" />
+            <img
+              class="is-rounded"
+              src="https://bulma.io/images/placeholders/128x128.png"
+            />
           </figure>
         </div>
       </div>
 
       <div class="columns">
         <div class="column">
-          <h1 class="title">{{authService.connectedUser.login }}</h1>
-          <h2 class="subtitle">{{authService.connectedUser.fullName }}</h2>
+          <h1 class="title">{{ authService.connectedUser.login }}</h1>
+          <h2 class="subtitle">{{ authService.connectedUser.fullName }}</h2>
           <h1 class="title">Test</h1>
           <h2 class="subtitle">Test Test</h2>
         </div>
@@ -26,10 +32,11 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting
-                  industry. Lorem Ipsum has been the industry's standard dummy text ever
-                  since the 1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book.
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book.
                 </p>
               </div>
               <nav class="level">
@@ -69,10 +76,8 @@
 
       <div class="columns">
         <div class="column">
-          <hr>
-          <div class="heading" style="font-size: 25px;">
-            Top 3 movies
-          </div>
+          <hr />
+          <div class="heading" style="font-size: 25px">Top 3 movies</div>
         </div>
       </div>
 
@@ -133,6 +138,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>

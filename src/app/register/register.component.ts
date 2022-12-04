@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,21 +8,25 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  login: any = '';
+  username: any = '';
   password: any = '';
-  fullName: any = '';
-  constructor(public authService: AuthService) {}
+  firstName: any = '';
+  lastName: any = '';
+  constructor(public authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
-  submit():any{
-    this.authService.register(this.login, this.password, this.fullName).subscribe(
-      (userInfo:any)=>{
-        this.authService.connectedUser = userInfo;
-      },
-      (error)=>{
-        console.log("Error", error)
-      }
-    )
+  submit(): any {
+    this.authService
+      .register(this.firstName, this.lastName, this.username, this.password)
+      .subscribe(
+        (userInfo: any) => {
+          this.authService.connectedUser = userInfo;
+          this.router.navigate(['films']);
+        },
+        (error) => {
+          console.log('Error', error);
+        }
+      );
   }
 }

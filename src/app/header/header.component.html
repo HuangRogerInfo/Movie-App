@@ -1,10 +1,16 @@
 <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" routerLink="" routerLinkActive="active-link">
-      <img src="../../assets/logo v1.png" />
+      <img src="../../assets/header.png" />
     </a>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a
+      role="button"
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarBasicExample"
+    >
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -21,38 +27,51 @@
         Collection
       </a> -->
 
-      <a class="navbar-item" routerLink="/collection" routerLinkActive="active-link">
+      <a
+        class="navbar-item"
+        routerLink="/collection"
+        routerLinkActive="active-link"
+      >
         Collection
-      </a>
-
-      <!-- <a class=" navbar-item" routerLink="/profile" routerLinkActive="active-link" *ngIf="authService.connectedUser">
-        Profile
-      </a> -->
-
-      <a class=" navbar-item" routerLink="/profile" routerLinkActive="active-link">
-        Profile
       </a>
     </div>
 
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-link" *ngIf="!authService.connectedUser" routerLink="/register"
-            routerLinkActive="active-link">
+          <a
+            class="button is-link"
+            *ngIf="!authService.connectedUser"
+            routerLink="/register"
+            routerLinkActive="active-link"
+          >
             <strong>Sign up</strong>
           </a>
-          <a class="button is-light" *ngIf="!authService.connectedUser" routerLink="/login"
-            routerLinkActive="active-link">
+          <a
+            class="button is-light"
+            *ngIf="!authService.connectedUser"
+            routerLink="/login"
+            routerLinkActive="active-link"
+          >
             Log in
           </a>
 
-          <a class="button is-link" routerLink="/profile" routerLinkActive="active-link"
-            *ngIf="authService.connectedUser">
-            <strong>{{ authService.connectedUser.fullName }}</strong>
+          <a
+            class="button is-primary"
+            routerLink="/profile"
+            routerLinkActive="active-link"
+            *ngIf="authService.connectedUser"
+          >
+            <strong>{{ authService.connectedUser.data.username }}</strong>
           </a>
 
-          <a class="button is-light" *ngIf="authService.connectedUser" routerLinkActive="active-link"
-            (click)="logout()"><i class="fa fa-power-off"></i></a>
+          <a
+            class="button is-light"
+            *ngIf="authService.connectedUser"
+            routerLinkActive="active-link"
+            (click)="logout()"
+            ><i class="fa fa-power-off"></i
+          ></a>
         </div>
       </div>
     </div>
