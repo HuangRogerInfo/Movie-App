@@ -1,28 +1,26 @@
-import { Injectable } from '@angular/core';
-import { DetailAvisComponent } from './detail-avis/detail-avis.component';
-import { OPINIONS } from './mock-film-opinion';
-import { Opinion } from './opinion';
+import { Injectable } from "@angular/core";
+import { Film } from "./film";
+import { OPINIONS } from "./mock-film-opinion";
+import { Opinion } from "./opinion";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class OpinionsService {
+  opinionCourant: string;
+  noteCourante: string;
+  idFilmCourant: number;
 
-  opinionCourant:string;
-  noteCourante:string;
-  idFilmCourant:number;
+  opinions: Array<Opinion> = OPINIONS;
 
-  opinions:Array<Opinion> = OPINIONS;
+  constructor() {}
 
-  constructor() { }
-
-  addOpinion():void{
-    var uneOpinion:Opinion = {
-      id:Math.floor(Math.random() * 10),
-      avis:this.opinionCourant,
-      note:this.noteCourante,
-      idFilm:this.idFilmCourant
-    }
+  addOpinion(): void {
+    var uneOpinion: Opinion = {
+      avis: this.opinionCourant,
+      note: this.noteCourante,
+      idFilm: this.idFilmCourant,
+    };
     this.opinions.push(uneOpinion);
 
     //Remise a zero
@@ -31,23 +29,65 @@ export class OpinionsService {
     this.idFilmCourant = 0;
   }
 
-  deleteOpinion(uneOpinion:Opinion):void{
-    var index = this.opinions.indexOf(uneOpinion);
-    this.opinions.splice(index,1);
+  hasOpinion(Film: Film): boolean {
+    if (
+      this.opinions.find((opinion) => opinion.idFilm == Film._id) != undefined
+    ) {
+      return true;
+    }
+    return false;
   }
 
-  saveOpinion(uneOpinion:Opinion):void{
-    var index = this.opinions.indexOf(uneOpinion);
-    this.opinions.splice(index,1);
+  updateNote(uneOpinion: Opinion, note: number) {
+    var toModify = this.opinions.find(
+      (opinion) => opinion.idFilm == uneOpinion.idFilm
+    );
+
+    if (toModify) {
+      toModify.note = note.toString();
+    }
+  }
+
+  addEmptyOpinion(Film: Film): void {
+    var uneOpinion: Opinion = {
+      avis: undefined,
+      note: "0",
+      idFilm: Film._id,
+    };
     this.opinions.push(uneOpinion);
   }
 
-  getOpinionList():Opinion[]{
+  addNewOpinion(uneOpinion: Opinion): void {
+    this.opinions.push(uneOpinion);
+  }
+
+  deleteOpinion(uneOpinion: Opinion): void {
+    var index = this.opinions.indexOf(uneOpinion);
+    this.opinions.splice(index, 1);
+  }
+
+  saveOpinion(uneOpinion: Opinion): void {
+    console.log("beforesaved", this.opinions);
+
+    var toReplace = this.opinions.find(
+      (avis) => avis.idFilm == uneOpinion.idFilm
+    );
+    if (toReplace) {
+      var index = this.opinions.indexOf(toReplace);
+      this.opinions.splice(index, 1);
+      this.opinions.push(uneOpinion);
+      console.log("saved", this.opinions);
+    } else {
+      console.log("not saved ! no existing opinions on this movie");
+    }
+  }
+
+  getOpinionList(): Opinion[] {
     return OPINIONS;
   }
 
-  getOpinionId(filmId:number):Opinion | undefined{
+  getOpinionId(filmId: number): Opinion | undefined {
     console.log(filmId);
-    return OPINIONS.find(avis => avis.idFilm == filmId)
+    return OPINIONS.find((avis) => avis.idFilm == filmId);
   }
 }

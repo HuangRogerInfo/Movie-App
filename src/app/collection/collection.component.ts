@@ -14,6 +14,10 @@ export class CollectionComponent implements OnInit {
   filmList: Film[];
   opinionList: Opinion[];
 
+  updateRating(newRate: number, opinion: Opinion) {
+    this.opinionsService.updateNote(opinion, newRate);
+  }
+
   constructor(
     private router: Router,
     public filmService: FilmService,

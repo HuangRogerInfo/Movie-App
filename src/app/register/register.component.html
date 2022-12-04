@@ -1,0 +1,63 @@
+<div class="hero is-fullheight is-link">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+          <form action="" class="box">
+            <div class="field">
+              <div class="container has-text-centered">
+                <figure class="image is-128x128 is-inline-block">
+                  <img class="is-rounded" src="../../assets/logo v1.png" />
+                </figure>
+              </div>
+              <label for="email" class="label">Email</label>
+              <div class="control has-icons-left">
+                <input
+                  name="email"
+                  class="input"
+                  type="text"
+                  placeholder="test@test.fr"
+                  [(ngModel)]="login"
+                  required
+                />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="fullName" class="label">Nom</label>
+              <div class="control has-icons-left">
+                <input
+                  name="fullName"
+                  class="input"
+                  type="text"
+                  placeholder="Jean Dupont"
+                  [(ngModel)]="fullName"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-user"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="password" class="label">Mot de passe</label>
+              <input
+                name="password"
+                class="input"
+                type="password"
+                placeholder="********"
+                [(ngModel)]="password"
+              />
+            </div>
+            <div class="field has-text-centered">
+              <button class="button is-success" (click)="submit()">
+                S'inscrire
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
