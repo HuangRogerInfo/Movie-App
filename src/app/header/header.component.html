@@ -31,6 +31,7 @@
         class="navbar-item"
         routerLink="/collection"
         routerLinkActive="active-link"
+        *ngIf="authService.connectedUser"
       >
         Collection
       </a>
