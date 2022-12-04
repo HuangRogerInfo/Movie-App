@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { HomeComponent } from "./home/home.component";
+import { ResultSearchComponent } from './result-search/result-search.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HomeComponent } from "./home/home.component";
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    ResultSearchComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,8 +9,14 @@ const USERS_ENDPOINT = "http://localhost:3000/users";
 @Injectable()
 export class FilmService {
   constructor(private http: HttpClient) {}
+
+  listFilmsSearched: Film[] | undefined;
   getFilmList(): Film[] {
     return FILMS;
+  }
+
+  getResultSearch(keyword: string): any {
+    return this.http.get(`${FILMS_ENDPOINT}/search?keywords=${keyword}`);
   }
 
   getLatestFilms(): any {
@@ -29,5 +35,10 @@ export class FilmService {
 
   getFavFilms(userId: string): any {
     return this.http.get(`${USERS_ENDPOINT}/${userId}/list`);
+  }
+
+  getResult(keywords: string): any {
+    var data = this.getResultSearch(keywords);
+    console.log("DATA : ", data);
   }
 }

@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { Film } from "../film";
 import { FilmService } from "../film.service";
 import { OpinionsService } from "../opinions.service";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-list-movie",
@@ -11,10 +12,12 @@ import { OpinionsService } from "../opinions.service";
 })
 export class ListMovieComponent implements OnInit {
   filmList: Film[] | undefined;
+  keyword: any = "";
 
   constructor(
     private router: Router,
     private filmService: FilmService,
+    public authService: AuthService,
     public opinionService: OpinionsService
   ) {}
 
@@ -33,5 +36,8 @@ export class ListMovieComponent implements OnInit {
 
   addToCollection(film: Film) {
     this.opinionService.addEmptyOpinion(film);
+  }
+  search(): any {
+    this.router.navigate(["results", this.keyword]);
   }
 }

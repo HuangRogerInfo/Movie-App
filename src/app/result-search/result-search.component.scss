@@ -1,0 +1,21 @@
+.card {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.card .title {
+    font-size: 16px;
+}
+
+.card .subtitle {
+    font-size: 12px;
+}
+
+img {
+    border: black solid 1px;
+}
+
+.test {
+    min-height: 80vh;
+}

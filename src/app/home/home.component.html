@@ -6,10 +6,10 @@
 
         <div class="field has-addons has-addons-centered">
           <div class="control">
-            <input class="input" type="text" placeholder="Find a movie" />
+            <input class="input" name="keyword" type="text" placeholder="Find a movie" [(ngModel)]="keyword" />
           </div>
           <div class="control">
-            <a class="button is-info"> Search </a>
+            <a class="button is-info" (click)="search()"> Search </a>
           </div>
         </div>
       </a>
