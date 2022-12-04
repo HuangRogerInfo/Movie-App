@@ -15,10 +15,11 @@ export class FilmService {
 
   getLatestFilms(): any {
     return this.http.get(`${FILMS_ENDPOINT}/latest`);
+    // return FILMS;
   }
 
   getFilmId(filmId: number): any {
-    return this.http.get(`${FILMS_ENDPOINT}/${filmId}`);
+    // return this.http.get(`${FILMS_ENDPOINT}/${filmId}`);
     return FILMS.find((film) => film._id == filmId);
   }
 

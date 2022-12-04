@@ -21,7 +21,7 @@ export class ListMovieComponent implements OnInit {
   ngOnInit(): void {
     this.filmService.getLatestFilms().subscribe(
       (films: any) => {
-        this.filmList = films;
+        this.filmList = films.results;
       },
       (error: any) => console.error(error)
     );
