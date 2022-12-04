@@ -6,10 +6,15 @@
         <div class="field has-addons pt-5">
 
           <div class="control is-expanded has-icons-right">
-            <input class="input is-medium is-rounded" type="text" placeholder="Search a movie...">
-            <span class="icon is-small is-right">
-              <i class="fas fa-magnifying-glass"></i>
-            </span>
+            <input class="input is-small is-rounded" type="text" placeholder="Search a movie...">
+  
+          </div>
+          <div class="control">
+            <a class="button is-info is-small is-rounded">
+              <span class="icon is-small">
+                <i class="fas fa-magnifying-glass"></i>
+              </span>
+            </a>
           </div>
 
         </div>
@@ -49,11 +54,9 @@
     </div>
   </div>
 
-
-
   <div class="column is-8">
     <div class="columns is-multiline pt-5">
-      <div *ngFor="let vfilm of filmList" class="column is-2">
+      <div *ngFor="let vfilm of filmList" class="column is-3">
         <div class="card">
           <header *ngIf="opinionService.hasOpinion(vfilm)" class="card-header">
             <p class="card-header-title">
@@ -67,9 +70,9 @@
           </header>
 
           <header *ngIf="!opinionService.hasOpinion(vfilm)" class="card-header">
-            <p class="card-header-title">
-              Add to Collection
-            </p>
+            <div class="card-header-title">
+              Add 
+            </div>
             <button (click)="addToCollection(vfilm)" class="card-header-icon" aria-label="more options">
               <span class="icon">
                 <i class="fas fa-plus" aria-hidden="true"></i>
