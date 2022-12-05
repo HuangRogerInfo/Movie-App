@@ -66,46 +66,55 @@
                   allowfullscreen></iframe>
               </figure>
             </div>
-
           </div>
+
         </div>
       </div>
 
-      <div class="columns" id="critique">
+      <div class="columns mb-2">
         <div class="column">
-          <div class="columns mb-2">
-            <div class="column">
-              <p class="heading is-size-4">Critiques</p>
-            </div>
-          </div>
-          <div class="columns is-multiline">
-            <div *ngFor="let review of film?.reviews" class="column is-6">
-              <div class="card">
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-left">
-                      <figure class="image is-48x48">
-                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
-                      </figure>
-                    </div>
-                    <div class="media-content">
-                      <p class="title is-4">{{ review.name }}</p>
-                      <p class="subtitle is-6">@{{ review.name }}</p>
-                    </div>
-                  </div>
+          <p class="heading is-size-4">Critiques</p>
+        </div>
+      </div>
 
-                  <div class="content">
-                    <div class="limit">
-                      {{ review.content }}
+      <section class="hero is-light">
+        <div class="hero-body">
+          <div class="columns" id="critique">
+            <div class="column">
+              <div class="columns is-multiline">
+                <div *ngFor="let review of film?.reviews | slice:0:4; let i = index" class="column is-6">
+                  <div *ngIf="i<5" class="card">
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-left">
+                          <figure class="image is-48x48">
+                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
+                          </figure>
+                        </div>
+                        <div class="media-content">
+                          <p class="title is-4">{{ review.name }}</p>
+                          <p class="subtitle is-6">@{{ review.name }}</p>
+                        </div>
+                      </div>
+
+                      <div class="content">
+                        <div class="limit">
+                          {{ review.content }}
+                        </div>
+                        <div class="has-text-weight-semi-bold">{{ review.date | slice:0:10 }}</div>
+                      </div>
                     </div>
-                    <time datetime="2016-1-1">{{ review.date }}</time>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+
+
+
     </div>
   </div>
 </div>

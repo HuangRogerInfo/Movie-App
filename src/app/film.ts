@@ -12,5 +12,5 @@ export class Film {
   totalRatings?: number;
   avarageRating?: number;
   duration?: number;
-  reviews?: Array<{ name?: String, content?: String, date?: String }>;
+  reviews?: Array<{ name?: string, content?: string, date?: string }>;
 }
