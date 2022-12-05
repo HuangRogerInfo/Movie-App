@@ -1,55 +1,36 @@
 <div class="columns">
-  <div class="column is-2 is-offset-1 has-background-light pt-5 test">
-    <div class="columns">
-      <div class="column">
-        <div class="field has-addons pt-5">
-          <div class="control is-expanded has-icons-right">
-            <input
-              class="input is-small is-rounded"
-              type="text"
-              placeholder="Search a movie..."
-              [(ngModel)]="keyword"
-            />
-          </div>
-          <div class="control">
-            <a class="button is-info is-small is-rounded" (click)="search()">
-              <span class="icon is-small">
-                <i class="fas fa-magnifying-glass"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="column is-2 is-offset-1 pt-5">
 
     <div class="columns">
       <div class="column">
-        <fieldset>
-          <legend>Choose your filter :</legend>
 
-          <div class="checkboxes pt-2">
-            <div>
-              <input type="checkbox" id="Test1" />
-              <label for="Test1"> Test1</label>
-            </div>
-            <div>
-              <input type="checkbox" id="Test2" />
-              <label for="Test2"> Test2</label>
-            </div>
-            <div>
-              <input type="checkbox" id="Test3" />
-              <label for="Test3"> Test3</label>
-            </div>
-            <div>
-              <input type="checkbox" id="Test4" />
-              <label for="Test4"> Test4</label>
-            </div>
-            <div>
-              <input type="checkbox" id="Test5" />
-              <label for="Test5"> Test5</label>
+        <section class="hero is-small is-warning mt-3">
+          <div class="hero-body">
+            <p class="title">
+              FilmGoer
+            </p>
+            <p class="subtitle">
+              Create your collection
+            </p>
+
+            <div class="columns">
+              <div class="column">
+                <div class="field has-addons">
+                  <div class="control is-expanded has-icons-right">
+                    <input class="input is-small" type="text" placeholder="Search a movie..." [(ngModel)]="keyword" />
+                  </div>
+                  <div class="control">
+                    <a class="button is-dark is-small is-rounded" (click)="search()">
+                      <span class="icon is-small">
+                        <i class="fas fa-magnifying-glass"></i>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </fieldset>
+        </section>
       </div>
     </div>
   </div>
@@ -58,12 +39,9 @@
     <div class="columns is-multiline pt-5">
       <div *ngFor="let vfilm of filmList" class="column is-3">
         <div class="card">
-          <header
-            *ngIf="
+          <header *ngIf="
               opinionService.hasOpinion(vfilm) && authService.connectedUser
-            "
-            class="card-header"
-          >
+            " class="card-header">
             <p class="card-header-title">Added</p>
             <button class="card-header-icon" aria-label="more options">
               <span class="icon">
@@ -72,18 +50,11 @@
             </button>
           </header>
 
-          <header
-            *ngIf="
+          <header *ngIf="
               !opinionService.hasOpinion(vfilm) && authService.connectedUser
-            "
-            class="card-header"
-          >
+            " class="card-header">
             <div class="card-header-title">Add</div>
-            <button
-              (click)="addToCollection(vfilm)"
-              class="card-header-icon"
-              aria-label="more options"
-            >
+            <button (click)="addToCollection(vfilm)" class="card-header-icon" aria-label="more options">
               <span class="icon">
                 <i class="fas fa-plus" aria-hidden="true"></i>
               </span>
