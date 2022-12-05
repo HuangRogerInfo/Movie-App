@@ -13,10 +13,7 @@
           </div>
 
           <div class="tags genre mb-1">
-            <span
-              *ngFor="let type of film.categories"
-              class="{{ type | movieGenreColor }}"
-            >
+            <span *ngFor="let type of film.categories" class="{{ type | movieGenreColor }}">
               {{ type }}
             </span>
           </div>
@@ -27,13 +24,10 @@
 
           <div class="rating mb-3">
             <div *ngFor="let i of [1, 2, 3, 4, 5]">
-              <i
-                class="fa-solid fa-star"
-                [ngClass]="{
+              <i class="fa-solid fa-star" [ngClass]="{
                   active:
                     film.avarageRating != undefined && i <= film.avarageRating
-                }"
-              >
+                }">
               </i>
             </div>
           </div>
@@ -50,29 +44,29 @@
 
       <div class="columns mb-5" id="synopsis">
         <div class="column">
+
           <div class="columns">
             <div class="column">
-              <div class="card has-background-dark">
-                <header class="card-header">
-                  <p class="card-header-title has-text-light">Synopsis</p>
-                </header>
+              <div class="content">
+                <blockquote>{{ film.synopsis }}</blockquote>
               </div>
             </div>
           </div>
 
-          <div class="columns">
+          <div class="columns mb-2">
             <div class="column">
-              <p>
-                {{ film.synopsis }}
-              </p>
+              <p class="heading is-size-3">Bande annonce</p>
             </div>
           </div>
 
           <div *ngIf="film.trailerURL" class="columns">
             <div *ngFor="let url of film.trailerURL" class="column is-6">
-              <iframe width="420" height="315" [src]="sanitizeUrl(url)">
-              </iframe>
+              <figure class="image is-16by9">
+                <iframe class="has-ratio" width="640" height="360" [src]="sanitizeUrl(url)" frameborder="0"
+                  allowfullscreen></iframe>
+              </figure>
             </div>
+
           </div>
         </div>
       </div>
@@ -81,11 +75,7 @@
         <div class="column">
           <div class="columns mb-2">
             <div class="column">
-              <div class="card has-background-dark">
-                <header class="card-header">
-                  <p class="card-header-title has-text-light">Critiques</p>
-                </header>
-              </div>
+              <p class="heading is-size-3">Critiques</p>
             </div>
           </div>
           <div class="columns is-multiline">
@@ -95,10 +85,7 @@
                   <div class="media">
                     <div class="media-left">
                       <figure class="image is-48x48">
-                        <img
-                          src="https://bulma.io/images/placeholders/96x96.png"
-                          alt="Placeholder image"
-                        />
+                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
                       </figure>
                     </div>
                     <div class="media-content">
