@@ -53,13 +53,13 @@
             </div>
           </div>
 
-          <div class="columns mb-2">
+          <div *ngIf="film.trailerURL && film.trailerURL.length>0" class="columns mb-2">
             <div class="column">
               <p class="heading is-size-4">Bande annonce</p>
             </div>
           </div>
 
-          <div *ngIf="film.trailerURL" class="columns">
+          <div *ngIf="film.trailerURL && film.trailerURL.length>0" class="columns">
             <div *ngFor="let url of film.trailerURL" class="column is-6">
               <figure class="image is-16by9">
                 <iframe class="has-ratio" width="640" height="360" [src]="sanitizeUrl(url)" frameborder="0"
@@ -71,18 +71,17 @@
         </div>
       </div>
 
-      <div class="columns mb-2">
-        <div class="column">
-          <p class="heading is-size-4">Critiques</p>
-        </div>
-      </div>
-
-      <section class="hero is-light">
+      <section *ngIf="film.reviews && film.reviews.length>0" class="hero is-light">
         <div class="hero-body">
           <div class="columns" id="critique">
             <div class="column">
+              <div class="columns mb-2">
+                <div class="column">
+                  <p class="heading is-size-4">Critiques</p>
+                </div>
+              </div>
               <div class="columns is-multiline">
-                <div *ngFor="let review of film?.reviews | slice:0:4; let i = index" class="column is-6">
+                <div *ngFor="let review of film.reviews | slice:0:4; let i = index" class="column is-6">
                   <div *ngIf="i<5" class="card">
                     <div class="card-content">
                       <div class="media">
