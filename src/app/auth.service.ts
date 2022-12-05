@@ -1,29 +1,30 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class AuthService {
-  connectedUser: any = null;
+  connectedUser: any;
 
   constructor(private http: HttpClient) {
     this.isLogged();
   }
 
   login(username: any, password: any): Observable<any> {
-    console.log('Connexion');
+    console.log("Connexion");
     return this.http.post(
-      'http://localhost:3000/login',
+      "http://localhost:3000/login",
       { username: username, password: password },
       { withCredentials: true }
     );
   }
 
+  // must set connectedUser to null
   logout(): Observable<any> {
-    console.log('ddd');
-    return this.http.get('http://localhost:3000/logout', {
+    console.log("ddd");
+    return this.http.get("http://localhost:3000/logout", {
       withCredentials: true,
     });
   }
@@ -35,7 +36,7 @@ export class AuthService {
     password: any
   ): Observable<any> {
     return this.http.post(
-      'http://localhost:3000/register',
+      "http://localhost:3000/register",
       {
         firstName: firstName,
         lastName: lastName,
@@ -48,11 +49,11 @@ export class AuthService {
 
   isLogged(): void {
     this.http
-      .get('http://localhost:3000/islogged', { withCredentials: true })
+      .get("http://localhost:3000/islogged", { withCredentials: true })
       .subscribe({
         next: (connectedUser) => (this.connectedUser = connectedUser),
-        error: (error) => console.log('not connected', error),
-        complete: () => console.log('completed'),
+        error: (error) => console.log("not connected", error),
+        complete: () => console.log("completed"),
       });
   }
 }

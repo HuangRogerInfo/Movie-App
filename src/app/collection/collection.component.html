@@ -7,24 +7,20 @@
   </div>
 
   <div class="columns is-multiline">
-    <div *ngFor="let opinion of opinionList" class="column is-2">
+    <div *ngFor="let film of filmList" class="column is-2">
       <div class="card">
         <header class="card-header">
           <div class="card-header-title">
             <div class="rating">
               <div *ngFor="let i of [1, 2, 3, 4, 5]">
-                <i
-                  class="fa-solid fa-star"
-                  (click)="updateRating(i, opinion)"
-                  [ngClass]="{ active: i <= +opinion.note }"
-                >
-                </i>
+                <!-- [ngClass]="{ active: i <= +opinion.note }" -->
+                <i class="fa-solid fa-star" (click)="updateRating()"> </i>
               </div>
             </div>
           </div>
 
           <button
-            (click)="opinionsService.deleteOpinion(opinion)"
+            (click)="goToFilm(film)"
             class="card-header-icon"
             aria-label="more options"
           >
@@ -34,12 +30,9 @@
           </button>
         </header>
 
-        <div
-          class="card-image"
-          (click)="goToAvisFilm(filmService.getFilmId(opinion.idFilm))"
-        >
+        <div class="card-image" (click)="goToFilm(film)">
           <figure class="image is-4by5">
-            <img src="https://bulma.io/images/placeholders/256x256.png" />
+            <img [src]="film.coverPic" />
           </figure>
         </div>
 
@@ -47,24 +40,19 @@
           <div class="media">
             <div class="media-content">
               <p class="title is-4">
-                {{ filmService.getFilmId(opinion.idFilm)?.title }}
+                {{ film.title }}
               </p>
               <p class="subtitle is-6">
-                {{
-                  filmService.getFilmId(opinion.idFilm)?.releaseDate
-                    | date : "yyyy"
-                }}
+                {{ film.releaseDate | date : "yyyy" }}
               </p>
             </div>
-            <div class="media-right">
-              <button
-                (click)="goToEditFilm(filmService.getFilmId(opinion.idFilm))"
-              >
+            <!-- <div class="media-right">
+              <button (click)="goToFilm(film)">
                 <span class="icon">
                   <i class="fa-solid fa-pen-to-square"></i>
                 </span>
               </button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
