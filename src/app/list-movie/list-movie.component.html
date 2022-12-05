@@ -1,38 +1,28 @@
 <div class="columns">
   <div class="column is-2 is-offset-1 has-background-light p-0 pt-5">
-
-    <div class="columns">
-      <div class="column">
-
-        <section class="hero is-small is-warning mt-3">
-          <div class="hero-body">
-            <p class="title is-4">
-              FilmGoer
-            </p>
-            <p class="subtitle is-6">
-              Create your collection
-            </p>
+    <div class="columns pt-5">
+      <div class="column has-text-centered">
+        <p class="title is-4">
+          FilmGoer
+        </p>
+        <p class="subtitle is-6">
+          Create your collection
+        </p>
+        <div class="field has-addons">
+          <div class="control is-expanded has-icons-right">
+            <input
+              class="input is-small"
+              type="text"
+              placeholder="Search a movie..."
+              [(ngModel)]="keyword"
+            />
           </div>
-        </section>
-        <div class="columns">
-          <div class="column">
-            <div class="field has-addons">
-              <div class="control is-expanded has-icons-right">
-                <input
-                  class="input is-small"
-                  type="text"
-                  placeholder="Search a movie..."
-                  [(ngModel)]="keyword"
-                />
-              </div>
-              <div class="control">
-                <a class="button is-dark is-small" (click)="search()">
-                  <span class="icon is-small">
-                    <i class="fas fa-magnifying-glass"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
+          <div class="control">
+            <a class="button is-dark is-small" (click)="search()">
+              <span class="icon is-small">
+                <i class="fas fa-magnifying-glass"></i>
+              </span>
+            </a>
           </div>
         </div>
       </div>
