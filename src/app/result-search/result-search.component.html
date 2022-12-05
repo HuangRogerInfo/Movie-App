@@ -59,13 +59,15 @@
       <div *ngFor="let vfilm of filmList" class="column is-3">
         <div class="card">
           <header
-            *ngIf="
-              opinionService.hasOpinion(vfilm) && authService.connectedUser
-            "
+            *ngIf="isFilmAdded(vfilm._id) && this.authService.connectedUser"
             class="card-header"
           >
             <p class="card-header-title">Added</p>
-            <button class="card-header-icon" aria-label="more options">
+            <button
+              class="card-header-icon"
+              aria-label="more options"
+              (click)="deleteFromCollection(vfilm._id)"
+            >
               <span class="icon">
                 <i class="fas fa-check" aria-hidden="true"></i>
               </span>
@@ -73,14 +75,12 @@
           </header>
 
           <header
-            *ngIf="
-              !opinionService.hasOpinion(vfilm) && authService.connectedUser
-            "
+            *ngIf="!isFilmAdded(vfilm._id) && this.authService.connectedUser"
             class="card-header"
           >
             <div class="card-header-title">Add</div>
             <button
-              (click)="addToCollection(vfilm)"
+              (click)="addToCollection(vfilm._id)"
               class="card-header-icon"
               aria-label="more options"
             >

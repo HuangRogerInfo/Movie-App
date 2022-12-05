@@ -36,8 +36,29 @@ export class ResultSearchComponent implements OnInit {
     }
   }
 
-  addToCollection(film: Film) {
-    this.opinionService.addEmptyOpinion(film);
+  addToCollection(filmId: number) {
+    // this.opinionService.addEmptyOpinion(film);
+    const userId = this.authService.connectedUser?.data?.userId;
+    this.filmService.addFilmToCollection(filmId, userId).subscribe((user) => {
+      //@ts-ignore
+      this.authService.connectedUser.data.favFilms = user.favFilms;
+    });
+  }
+
+  isFilmAdded(filmId: number) {
+    return this.filmService.isFilmAdded(filmId);
+  }
+
+  deleteFromCollection(filmId: number) {
+    const userId = this.authService.connectedUser?.data?.userId;
+    if (userId) {
+      this.filmService.deleteFilmFromCollection(filmId, userId).subscribe(
+        (user) => {
+          this.authService.connectedUser.data.favFilms = user.favFilms;
+        },
+        (error: any) => console.error(error)
+      );
+    }
   }
 
   goToFilm(film: Film) {
