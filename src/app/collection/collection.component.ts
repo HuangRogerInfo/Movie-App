@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { AuthService } from "../auth.service";
 import { Film } from "../film";
 import { FilmService } from "../film.service";
 import { Opinion } from "../opinion";
@@ -14,23 +15,32 @@ export class CollectionComponent implements OnInit {
   filmList: Film[];
   opinionList: Opinion[];
 
-  updateRating(newRate: number, opinion: Opinion) {
-    this.opinionsService.updateNote(opinion, newRate);
-  }
+  // updateRating(newRate: number, opinion: Opinion) {
+  //   this.opinionsService.updateNote(opinion, newRate);
+  // }
+
+  updateRating() {}
 
   constructor(
     private router: Router,
     public filmService: FilmService,
+    private authService: AuthService,
     public opinionsService: OpinionsService
   ) {}
 
-  userId: string = "1";
   ngOnInit(): void {
-    this.filmService.getFavFilms(this.userId).subscribe((favFilms: Film[]) => {
-      this.filmList = favFilms;
-    });
-    this.filmList = this.filmService.getFilmList();
-    this.opinionList = this.opinionsService.getOpinionList();
+    if (this.authService.connectedUser) {
+      this.filmService
+        .getFavFilms(this.authService.connectedUser?.data?.userId)
+        .subscribe((favFilms: Film[]) => {
+          this.filmList = favFilms;
+        });
+    } else {
+      this.router.navigate(["/home"]);
+    }
+
+    // this.filmList = this.filmService.getFilmList();
+    // this.opinionList = this.opinionsService.getOpinionList();
   }
 
   goToAvisFilm(film: Film | undefined) {
@@ -39,6 +49,10 @@ export class CollectionComponent implements OnInit {
     } else {
       this.router.navigate(["/errorpage"]);
     }
+  }
+
+  goToFilm(film: Film) {
+    this.router.navigate(["/films", film._id]);
   }
 
   goToEditFilm(film: Film | undefined) {
