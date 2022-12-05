@@ -9,19 +9,19 @@ export class MovieGenreColorPipe implements PipeTransform {
     let color: string;
 
     switch (type) {
-      case 'sci-fi':
+      case 'Science-Fiction':
         color = 'is-dark';
         break;
-      case 'action':
+      case 'Action':
         color = 'is-danger';
         break;
-      case 'animation':
+      case 'Animation':
         color = 'is-success';
         break;
-      case 'musical':
+      case 'Fantastique':
         color = 'is-warning';
         break;
-      case 'drame':
+      case 'Thriller':
         color = 'is-black';
         break;
       default:

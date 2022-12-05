@@ -8,8 +8,9 @@ export class Film {
   synopsis?: string;
   releaseCountry?: string;
   director?: string;
-  trailerURL?: string;
+  trailerURL?: Array<string>;
   totalRatings?: number;
   avarageRating?: number;
   duration?: number;
+  reviews?: Array<{ name?: String, content?: String, date?: String }>;
 }

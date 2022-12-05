@@ -8,7 +8,7 @@ const USERS_ENDPOINT = "http://localhost:3000/users";
 
 @Injectable()
 export class FilmService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   listFilmsSearched: Film[] | undefined;
   getFilmList(): Film[] {
@@ -25,8 +25,8 @@ export class FilmService {
   }
 
   getFilmId(filmId: number): any {
-    // return this.http.get(`${FILMS_ENDPOINT}/${filmId}`);
-    return FILMS.find((film) => film._id == filmId);
+    return this.http.get(`${FILMS_ENDPOINT}/${filmId}`);
+    //return FILMS.find((film) => film._id == filmId);
   }
 
   getFilmTypeList(): string[] {
