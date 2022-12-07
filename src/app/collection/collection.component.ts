@@ -62,4 +62,20 @@ export class CollectionComponent implements OnInit {
       this.router.navigate(["/errorpage"]);
     }
   }
+
+  deleteFromCollection(filmId: number) {
+    this.filmService
+      .deleteFilmFromCollection(
+        filmId,
+        this.authService.connectedUser.data.userId
+      )
+      .subscribe(
+        (user: any) => {
+          this.filmList = this.filmList.filter((film: Film) =>
+            user.favFilms.find((f: number) => f === film._id)
+          );
+        },
+        (error) => console.log(error)
+      );
+  }
 }
