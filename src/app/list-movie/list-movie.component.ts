@@ -3,7 +3,6 @@ import { Router } from "@angular/router";
 import { AuthService } from "../auth.service";
 import { Film } from "../film";
 import { FilmService } from "../film.service";
-import { OpinionsService } from "../opinions.service";
 
 @Component({
   selector: "app-list-movie",
@@ -18,7 +17,6 @@ export class ListMovieComponent implements OnInit {
     private router: Router,
     private filmService: FilmService,
     public authService: AuthService,
-    public opinionService: OpinionsService
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +33,6 @@ export class ListMovieComponent implements OnInit {
   }
 
   addToCollection(filmId: number) {
-    // this.opinionService.addEmptyOpinion(film);
     const userId = this.authService.connectedUser?.data?.userId;
     this.filmService.addFilmToCollection(filmId, userId).subscribe((user) => {
       //@ts-ignore

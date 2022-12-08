@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Film } from "../film";
-import { OpinionsService } from "../opinions.service";
 import { FilmService } from "../film.service";
 import { Router } from "@angular/router";
 import { ActivatedRoute } from "@angular/router";
@@ -15,7 +14,6 @@ export class ResultSearchComponent implements OnInit {
   filmList: Film[] | undefined;
   keyword: any = "";
   constructor(
-    public opinionService: OpinionsService,
     public filmService: FilmService,
     public authService: AuthService,
     private route: ActivatedRoute,
@@ -37,7 +35,6 @@ export class ResultSearchComponent implements OnInit {
   }
 
   addToCollection(filmId: number) {
-    // this.opinionService.addEmptyOpinion(film);
     const userId = this.authService.connectedUser?.data?.userId;
     this.filmService.addFilmToCollection(filmId, userId).subscribe((user) => {
       //@ts-ignore

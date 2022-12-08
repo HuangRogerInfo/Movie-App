@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Film } from "./film";
-import { FILMS } from "./mock-film-list";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { AuthService } from "./auth.service";
@@ -13,10 +12,6 @@ export class FilmService {
   constructor(private http: HttpClient, private auth: AuthService) {}
 
   listFilmsSearched: Film[] | undefined;
-  getFilmList(): Film[] {
-    return FILMS;
-  }
-
   getResultSearch(keyword: string): any {
     return this.http.get(`${FILMS_ENDPOINT}/search?keywords=${keyword}`);
   }

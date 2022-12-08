@@ -4,7 +4,6 @@ import { AuthService } from "../auth.service";
 import { Film } from "../film";
 import { FilmService } from "../film.service";
 import { Opinion } from "../opinion";
-import { OpinionsService } from "../opinions.service";
 
 @Component({
   selector: "app-collection",
@@ -25,7 +24,6 @@ export class CollectionComponent implements OnInit {
     private router: Router,
     public filmService: FilmService,
     private authService: AuthService,
-    public opinionsService: OpinionsService
   ) {}
 
   ngOnInit(): void {
@@ -38,9 +36,6 @@ export class CollectionComponent implements OnInit {
     } else {
       this.router.navigate(["/home"]);
     }
-
-    // this.filmList = this.filmService.getFilmList();
-    // this.opinionList = this.opinionsService.getOpinionList();
   }
 
   goToAvisFilm(film: Film | undefined) {
