@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { AuthService } from "../auth.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  selector: "app-register",
+  templateUrl: "./register.component.html",
+  styleUrls: ["./register.component.scss"],
 })
 export class RegisterComponent implements OnInit {
-  username: any = '';
-  password: any = '';
-  firstName: any = '';
-  lastName: any = '';
+  username: any = "";
+  password: any = "";
+  firstName: any = "";
+  lastName: any = "";
   constructor(public authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
@@ -22,10 +22,10 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         (userInfo: any) => {
           this.authService.connectedUser = userInfo;
-          this.router.navigate(['films']);
+          this.router.navigate(["films"]);
         },
         (error) => {
-          console.log('Error', error);
+          console.log("Error", error);
         }
       );
   }
