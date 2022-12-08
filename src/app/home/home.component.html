@@ -1,15 +1,15 @@
 <div class="container">
   <div class="columns pt-5">
-    <div class="column has-text-centered">
+    <div class="column is-6 is-offset-3 has-text-centered">
       <a class="picture">
         <img src="../../assets/home.png" />
 
         <div class="field has-addons has-addons-centered">
-          <div class="control">
-            <input class="input" name="keyword" type="text" placeholder="Find a movie" [(ngModel)]="keyword" />
+          <div class="control is-expanded">
+            <input class="input is-rounded" name="keyword" type="text" placeholder="Search a movie" [(ngModel)]="keyword" />
           </div>
           <div class="control">
-            <a class="button is-info" (click)="search()"> Search </a>
+            <a class="button is-link is-rounded" (click)="search()"> Search </a>
           </div>
         </div>
       </a>
