@@ -14,7 +14,12 @@
             <div class="rating">
               <div *ngFor="let i of [1, 2, 3, 4, 5]">
                 <!-- [ngClass]="{ active: i <= +opinion.note }" -->
-                <i class="fa-solid fa-star" (click)="updateRating()"> </i>
+                <i
+                  class="fa-solid fa-star"
+                  (click)="updateNote(film._id, i)"
+                  [ngClass]="{ active: i <= findFilmRating(film._id) }"
+                >
+                </i>
               </div>
             </div>
           </div>
