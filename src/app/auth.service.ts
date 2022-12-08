@@ -12,6 +12,18 @@ export class AuthService {
     this.isLogged();
   }
 
+  getUsername(){
+    if(this.connectedUser){
+      return this.connectedUser.data.username
+    }
+  }
+
+  getFullName(){
+    if(this.connectedUser){
+      return this.connectedUser.data.fullName
+    }
+  }
+
   login(username: any, password: any): Observable<any> {
     console.log("Connexion");
     return this.http.post(
@@ -23,7 +35,6 @@ export class AuthService {
 
   // must set connectedUser to null
   logout(): Observable<any> {
-    console.log("ddd");
     return this.http.get("http://localhost:3000/logout", {
       withCredentials: true,
     });
