@@ -4,39 +4,63 @@
       <span class="icon">
         <i class="fas fa-home"></i>
       </span>
+      <span class="pl-1">
+        Accueil
+      </span>
     </a>
   </div>
 
   <div class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" routerLink="/films" routerLinkActive="active-link">
-        Films à l'affiche
+        <span class="icon">
+          <i class="fa-solid fa-clapperboard"></i>
+        </span>
+        <span class="pl-1">
+          A l'affiche
+        </span>
       </a>
 
       <a class="navbar-item" routerLink="/collection" routerLinkActive="active-link" *ngIf="authService.connectedUser">
-        Collection
-      </a>
+        <span class="icon">
+          <i class="fa-solid fa-layer-group"></i>
+        </span>
+        <span class="pl-1">
+          Collection
+        </span>
+      </a>      
     </div>
 
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-link" *ngIf="!authService.connectedUser" routerLink="/register"
-            routerLinkActive="active-link">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light" *ngIf="!authService.connectedUser" routerLink="/login"
-            routerLinkActive="active-link">
-            Log in
-          </a>
+          <button class="button"  *ngIf="!authService.connectedUser" routerLink="/login" routerLinkActive="active-link">
+            <span class="icon">
+              <i class="fa-solid fa-user"></i>
+            </span>
+            <span>Log in</span>
+          </button>
 
-          <a class="button is-primary" routerLink="/profile" routerLinkActive="active-link"
-            *ngIf="authService.connectedUser">
-            <strong>{{ authService.connectedUser.data.username }}</strong>
-          </a>
+          <button class="button" *ngIf="!authService.connectedUser" routerLink="/register" routerLinkActive="active-link">
+              <span class="icon">
+                <i class="fa-solid fa-right-to-bracket"></i>
+              </span>
+              <span>Sign up</span>
+          </button>
 
-          <a class="button is-light" *ngIf="authService.connectedUser" routerLinkActive="active-link"
-            (click)="logout()"><i class="fa fa-power-off"></i></a>
+          <button class="button" routerLink="/profile" routerLinkActive="active-link" *ngIf="authService.connectedUser">
+            <span class="icon">
+              <i class="fa-solid fa-user"></i>
+            </span>
+            <span>Profile</span>
+          </button>
+
+          <button class="button"  *ngIf="authService.connectedUser" routerLinkActive="active-link" (click)="logout()">
+            <span class="icon">
+              <i class="fa-solid fa-right-from-bracket"></i>
+            </span>
+            <span>Logout</span>
+          </button>
         </div>
       </div>
     </div>
