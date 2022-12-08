@@ -62,6 +62,7 @@ export class CollectionComponent implements OnInit {
           this.filmList = this.filmList.filter((film: Film) =>
             user.favFilms.find((f: number) => f === film._id)
           );
+          this.authService.connectedUser.data.favFilms = this.filmList;
         },
         (error) => console.log(error)
       );
