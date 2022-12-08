@@ -5,8 +5,11 @@
         <img src="../../assets/home.png" />
 
         <div class="field has-addons has-addons-centered">
-          <div class="control is-expanded">
-            <input class="input is-rounded" name="keyword" type="text" placeholder="Search a movie" [(ngModel)]="keyword" />
+          <div class="control is-expanded has-icons-left">
+            <input class="input is-rounded " name="keyword" type="text" placeholder="Search a movie" [(ngModel)]="keyword" />
+            <span class="icon is-left">
+              <i class="fas fa-magnifying-glass"></i>
+            </span>
           </div>
           <div class="control">
             <a class="button is-link is-rounded" (click)="search()"> Search </a>
