@@ -27,7 +27,7 @@
             <div class="level-item has-text-centered">
               <div>
                 <p class="heading">Movies</p>
-                <p class="title">13</p>
+                <p class="title">{{authService.connectedUser.data.favFilms.length}}</p>
               </div>
             </div>
             <!-- <div class="level-item has-text-centered">
@@ -54,67 +54,30 @@
       </div>
 
       <div class="columns is-multiline">
-        <div class="column is-one-third">
-          <div class="card">
-            <div class="card-image">
+        <div *ngFor="let film of filmList" class="column is-2">
+          <div class="card">    
+            <div class="card-image" (click)="goToFilm(film)">
               <figure class="image is-4by5">
-                <img
-                  src="https://image.tmdb.org/t/p/original/hSfuKPtyEryeFzapZ8UgZd4aESu.jpg"
-                />
+                <img [src]="film.coverPic" />
               </figure>
             </div>
-
+    
             <div class="card-content p-2">
               <div class="media">
                 <div class="media-content">
-                  <p class="title is-6">Avengers</p>
-                  <!-- <p class="subtitle is-7">2022</p> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="column is-one-third">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by5">
-                <img
-                  src="https://image.tmdb.org/t/p/original/kTh1s6I6yUyk2OGiRoGkDTYTS6K.jpg"
-                />
-              </figure>
-            </div>
-
-            <div class="card-content p-2">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-6">Top Gun Maverick</p>
-                  <!-- <p class="subtitle is-7">2022</p> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="column is-one-third">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by5">
-                <img
-                  src="https://image.tmdb.org/t/p/original/py8Js6LEl10XhUjkoOj6UGRrSFp.jpg"
-                />
-              </figure>
-            </div>
-
-            <div class="card-content p-2">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-6">Captain America : Civil War</p>
-                  <!-- <p class="subtitle is-7">2022</p> -->
+                  <p class="title is-4">
+                    {{ film.title }}
+                  </p>
+                  <p class="subtitle is-6">
+                    {{ film.releaseDate | date : "yyyy" }}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    
     </div>
   </div>
 </div>
